@@ -32,8 +32,7 @@ except ModuleNotFoundError:
 
 
 class DecomonConv2D(Conv2D, DecomonLayer):
-    """
-    Forward LiRPA implementation of Conv2d layers.
+    """Forward LiRPA implementation of Conv2d layers.
     See Keras official documentation for further details on the Conv2d operator
 
     """
@@ -90,9 +89,11 @@ class DecomonConv2D(Conv2D, DecomonLayer):
 
     def build(self, input_shape):
         """
+        Args:
+            input_shape
 
-        :param input_shape:
-        :return:
+        Returns:
+
         """
 
         assert len(input_shape) == self.nb_tensors
@@ -327,11 +328,14 @@ class DecomonConv2D(Conv2D, DecomonLayer):
         self.bias = layer.bias
 
     def call_linear(self, inputs, **kwargs):
-        """
-        computing the perturbation analysis of the operator without the activation function
-        :param inputs: list of input tensors
-        :param kwargs:
-        :return: List of updated tensors
+        """computing the perturbation analysis of the operator without the activation function
+
+        Args:
+            inputs: list of input tensors
+            **kwargs
+
+        Returns:
+            List of updated tensors
         """
         z_value = K.cast(0.0, K.floatx())
         o_value = K.cast(1.0, K.floatx())
@@ -683,9 +687,10 @@ class DecomonConv2D(Conv2D, DecomonLayer):
 
     def call(self, inputs, **kwargs):
         """
+        Args:
+            inputs
 
-        :param inputs:
-        :return:
+        Returns:
 
         """
         output = self.call_linear(inputs, **kwargs)
@@ -698,9 +703,10 @@ class DecomonConv2D(Conv2D, DecomonLayer):
 
     def compute_output_shape(self, input_shape):
         """
+        Args:
+            input_shape
 
-        :param input_shape:
-        :return:
+        Returns:
 
         """
         assert len(input_shape) == self.nb_tensors
@@ -763,9 +769,10 @@ class DecomonConv2D(Conv2D, DecomonLayer):
 
     def reset_layer(self, layer):
         """
+        Args:
+            layer
 
-        :param layer:
-        :return:
+        Returns:
 
         """
         # assert than we have the same configuration

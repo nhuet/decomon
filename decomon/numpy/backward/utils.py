@@ -8,11 +8,13 @@ from ..milp.activation import bound_A, bound_B
 
 def get_lower_box(x, w, b):
     """
+    Args:
+        x: array (n_batch, 2, n_in)
+        w: array(n_batch, n_in, n_out)
+        b: array(n_batch, n_out)
 
-    :param x: array (n_batch, 2, n_in)
-    :param w:  array(n_batch, n_in, n_out)
-    :param b: array(n_batch, n_out)
-    :return: max_x w*x+ b
+    Returns:
+        max_x w*x+ b
     """
 
     return np.sum(np.maximum(0.0, w) * x[:, 0, :, None], 1) + np.sum(np.minimum(0.0, w) * x[:, 1, :, None], 1) + b
@@ -20,11 +22,13 @@ def get_lower_box(x, w, b):
 
 def get_upper_box(x, w, b):
     """
+    Args:
+        x: array (n_batch, 2, n_in)
+        w: array(n_batch, n_in, n_out)
+        b: array(n_batch, n_out)
 
-    :param x: array (n_batch, 2, n_in)
-    :param w:  array(n_batch, n_in, n_out)
-    :param b: array(n_batch, n_out)
-    :return: max_x w*x+ b
+    Returns:
+        max_x w*x+ b
     """
     return np.sum(np.maximum(0.0, w) * x[:, 1, :, None], 1) + np.sum(np.minimum(0.0, w) * x[:, 0, :, None], 1) + b
 
@@ -94,8 +98,7 @@ def get_linear_hull_relu_quantized(inputs, convex_domain, params=None, **kwargs)
     A = compute_A(convex_domain["n"], x, w_f_u, b_f_u, w_f_l, b_f_l, stable_coeff)
     B = compute_B(convex_domain["n"], x, w_f_u, b_f_u, w_f_l, b_f_l, stable_coeff)
 
-    """
-    A = np.maximum(A, lower)
+    """A = np.maximum(A, lower)
     B = np.minimum(B, upper)
     A = np.minimum(A, upper)
     B  = np.maximum(B, lower)
@@ -135,8 +138,7 @@ def get_linear_hull_relu_quantized(inputs, convex_domain, params=None, **kwargs)
     w_l = (1 - index_linear) * w_l + index_linear
     b_l = (1 - index_linear) * b_l
 
-    """
-    hard_clip = 1- np.sign(np.maximum(upper-lower, 1e-6)/1e-6 -1)
+    """hard_clip = 1- np.sign(np.maximum(upper-lower, 1e-6)/1e-6 -1)
     if np.max(hard_clip):
         print('hello')
         w_l = (1-hard_clip)*w_l + (hard_clip)*K.maximum(0., K.sign(lower))

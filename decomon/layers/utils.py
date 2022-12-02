@@ -73,14 +73,17 @@ def _get_shape_tuple(init_tuple, tensor, start_idx, int_shape=None):
 
 # case 1: a box
 def get_upper_box(x_min, x_max, w, b, **kwargs):
-    """
-    #compute the max of an affine function
+    """#compute the max of an affine function
     within a box (hypercube) defined by its extremal corners
-    :param x_min: lower bound of the box domain
-    :param x_max: upper bound of the box domain
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: max_(x >= x_min, x<=x_max) w*x + b
+
+    Args:
+        x_min: lower bound of the box domain
+        x_max: upper bound of the box domain
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        max_(x >= x_min, x<=x_max) w*x + b
     """
 
     z_value = K.cast(0.0, K.floatx())
@@ -104,12 +107,14 @@ def get_upper_box(x_min, x_max, w, b, **kwargs):
 
 def get_lower_box(x_min, x_max, w, b, **kwargs):
     """
+    Args:
+        x_min: lower bound of the box domain
+        x_max: upper bound of the box domain
+        w_l: weights of the affine lower bound
+        b_l: bias of the affine lower bound
 
-    :param x_min: lower bound of the box domain
-    :param x_max: upper bound of the box domain
-    :param w_l: weights of the affine lower bound
-    :param b_l: bias of the affine lower bound
-    :return: min_(x >= x_min, x<=x_max) w*x + b
+    Returns:
+        min_(x >= x_min, x<=x_max) w*x + b
     """
     z_value = K.cast(0.0, K.floatx())
 
@@ -130,12 +135,15 @@ def get_lower_box(x_min, x_max, w, b, **kwargs):
 
 # case 2 : a ball
 def get_lq_norm(x, p, axis=-1):
-    """
-    compute Lp norm (p=1 or 2)
-    :param x: tensor
-    :param p: the power must be an integer in (1, 2)
-    :param axis: the axis on which we compute the norm
-    :return: ||w||^p
+    """compute Lp norm (p=1 or 2)
+
+    Args:
+        x: tensor
+        p: the power must be an integer in (1, 2)
+        axis: the axis on which we compute the norm
+
+    Returns:
+        ||w||^p
     """
 
     if p not in [1, 2]:
@@ -151,14 +159,17 @@ def get_lq_norm(x, p, axis=-1):
 
 
 def get_upper_ball(x_0, eps, p, w, b, **kwargs):
-    """
-    max of an affine function over an Lp ball
-    :param x_0: the center of the ball
-    :param eps: the radius
-    :param p: the type of Lp norm considered
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: max_(|x - x_0|_p<= eps) w*x + b
+    """max of an affine function over an Lp ball
+
+    Args:
+        x_0: the center of the ball
+        eps: the radius
+        p: the type of Lp norm considered
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        max_(|x - x_0|_p<= eps) w*x + b
     """
 
     # import pdb; pdb.set_trace()
@@ -290,14 +301,17 @@ def get_upper_ball_finetune(x_0, eps, p, w, b, **kwargs):
 
 
 def get_lower_ball(x_0, eps, p, w, b, **kwargs):
-    """
-    min of an affine fucntion over an Lp ball
-    :param x_0: the center of the ball
-    :param eps: the radius
-    :param p: the type of Lp norm considered
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: min_(|x - x_0|_p<= eps) w*x + b
+    """min of an affine fucntion over an Lp ball
+
+    Args:
+        x_0: the center of the ball
+        eps: the radius
+        p: the type of Lp norm considered
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        min_(|x - x_0|_p<= eps) w*x + b
     """
     if len(w.shape) == len(b.shape):
         return x_0 - eps
@@ -323,14 +337,17 @@ def get_lower_ball(x_0, eps, p, w, b, **kwargs):
 
 
 def get_upper(x, w, b, convex_domain=None, **kwargs):
-    """
-    Meta function that aggregates all the way
+    """Meta function that aggregates all the way
     to compute a constant upper bounds depending on the convex domain
-    :param x: the tensors that represent the domain
-    :param w: the weights of the affine function
-    :param b: the bias
-    :param convex_domain: the type of convex domain (see ???)
-    :return: a constant upper bound of the affine function
+
+    Args:
+        x: the tensors that represent the domain
+        w: the weights of the affine function
+        b: the bias
+        convex_domain: the type of convex domain (see ???)
+
+    Returns:
+        a constant upper bound of the affine function
     """
     if convex_domain is None:
         convex_domain = {}
@@ -360,14 +377,13 @@ def get_upper(x, w, b, convex_domain=None, **kwargs):
 
 
 def get_lower(x, w, b, convex_domain=None, **kwargs):
-    """
-     Meta function that aggregates all the way
-     to compute a constant lower bound depending on the convex domain
-    :param x: the tensors that represent the domain
-    :param w: the weights of the affine function
-    :param b: the bias
-    :param convex_domain: the type of convex domain (see ???)
-    :return: a constant upper bound of the affine function
+    """Meta function that aggregates all the way
+    to compute a constant lower bound depending on the convex domain
+        :param x: the tensors that represent the domain
+        :param w: the weights of the affine function
+        :param b: the bias
+        :param convex_domain: the type of convex domain (see ???)
+        :return: a constant upper bound of the affine function
     """
     if convex_domain is None:
         convex_domain = {}
@@ -402,19 +418,21 @@ def get_lower(x, w, b, convex_domain=None, **kwargs):
 #####
 # first compute gradient of the function
 def get_grad(x, constant, W, b):
-    """
-    We compute the gradient of the function f at sample x
+    """We compute the gradient of the function f at sample x
 
     f = sum_{i<= n_linear} max(constant_i, W_i*x + b_i)
     it is quite easy to compute the gradient symbolically, without using the gradient operator
     it is either 0 if f(x) = constant or W else
     this trick allows to be backpropagation compatible
 
-    :param x: Keras Tensor (None, n_dim, ...)
-    :param constant: Keras Tensor (None, n_linear, ...)
-    :param W: Keras Tensor (None, n_dim, n_linear, ...)
-    :param b: Keras Tensor (None, n_linear, ...)
-    :return: Keras Tensor the gradient of the function (None, n_dim, ...)
+    Args:
+        x: Keras Tensor (None, n_dim, ...)
+        constant: Keras Tensor (None, n_linear, ...)
+        W: Keras Tensor (None, n_dim, n_linear, ...)
+        b: Keras Tensor (None, n_linear, ...)
+
+    Returns:
+        Keras Tensor the gradient of the function (None, n_dim, ...)
     """
     # product W*x + b
     # import pdb; pdb.set_trace()
@@ -432,10 +450,14 @@ def get_grad(x, constant, W, b):
 
 
 def compute_L(W):
-    """
-    We compute the largest possible norm of the gradient
-    :param W: Keras Tensor (None, n_dim, n_linear, ...)
-    :return: Keras Tensor with an upper bound on the largest magnitude of the gradient
+    """We compute the largest possible norm of the gradient
+
+    Args:
+        W: Keras Tensor (None, n_dim, n_linear, ...)
+
+    Returns:
+        Keras Tensor with an upper bound on the largest magnitude of the
+        gradient
     """
     # do L2 norm
     return K.sum(K.sqrt(K.sum(W * W, 1)), 1)
@@ -444,11 +466,14 @@ def compute_L(W):
 
 
 def compute_R(z, convex_domain):
-    """
-    We compute the largest L2 distance of the starting point with the global optimum
-    :param z: Keras Tensor
-    :param convex_domain: Dictionnary to complement z on the convex domain
-    :return: Keras Tensor an upper bound on the distance
+    """We compute the largest L2 distance of the starting point with the global optimum
+
+    Args:
+        z: Keras Tensor
+        convex_domain: Dictionnary to complement z on the convex domain
+
+    Returns:
+        Keras Tensor an upper bound on the distance
     """
 
     if len(convex_domain) == 0:
@@ -467,12 +492,15 @@ def compute_R(z, convex_domain):
 
 
 def get_start_point(z, convex_domain):
-    """
-    Create a warm start for the optimization (the mid point to minimize the largest distance between the
+    """Create a warm start for the optimization (the mid point to minimize the largest distance between the
     warm start and the global optimum
-    :param z: Keras Tensor
-    :param convex_domain: Dictionnary to complement z on the convex domain
-    :return: Keras Tensor
+
+    Args:
+        z: Keras Tensor
+        convex_domain: Dictionnary to complement z on the convex domain
+
+    Returns:
+        Keras Tensor
     """
 
     if len(convex_domain) == 0:
@@ -491,11 +519,14 @@ def get_start_point(z, convex_domain):
 
 def get_coeff_grad(R, k, g):
     """
+    Args:
+        R: Keras Tensor that reprends the largest distance to the gloabl
+            optimum
+        k: the number of iteration done so far
+        g: the gradient
 
-    :param R: Keras Tensor that reprends the largest distance to the gloabl optimum
-    :param k: the number of iteration done so far
-    :param g: the gradient
-    :return: the adaptative step size for the gradient
+    Returns:
+        the adaptative step size for the gradient
     """
 
     denum = np.sqrt(k) * K.sqrt(K.sum(K.pow(g, 2), 1))
@@ -506,14 +537,16 @@ def get_coeff_grad(R, k, g):
 
 def grad_descent_conv(z, concave_upper, convex_lower, op_pos, ops_neg, n_iter):
     """
+    Args:
+        z
+        concave_upper
+        convex_lower
+        op_pos
+        ops_neg
+        n_iter
 
-    :param z:
-    :param concave_upper:
-    :param convex_lower:
-    :param op_pos:
-    :param ops_neg:
-    :param n_iter:
-    :return:
+    Returns:
+
     """
 
     raise NotImplementedError()
@@ -521,14 +554,16 @@ def grad_descent_conv(z, concave_upper, convex_lower, op_pos, ops_neg, n_iter):
 
 def grad_descent(z, convex_0, convex_1, convex_domain, n_iter=5):
     """
+    Args:
+        z: Keras Tensor
+        constant: Keras Tensor, the constant of each component
+        W: Keras Tensor, the affine of each component
+        b: Keras Tensor, the bias of each component
+        convex_domain: Dictionnary to complement z on the convex domain
+        n_iter: the number of total iteration
 
-    :param z: Keras Tensor
-    :param constant: Keras Tensor, the constant of each component
-    :param W: Keras Tensor, the affine of each component
-    :param b: Keras Tensor, the bias of each component
-    :param convex_domain: Dictionnary to complement z on the convex domain
-    :param n_iter: the number of total iteration
-    :return:
+    Returns:
+
     """
 
     constant_0, W_0, b_0 = convex_0
@@ -623,9 +658,7 @@ class ClipAlphaAndSumtoOne(Constraint):
 
 
 class MultipleConstraint(Constraint):
-    """
-    stacking multiple constraints
-    """
+    """stacking multiple constraints"""
 
     def __init__(self, constraint_0, constraint_1, **kwargs):
         super().__init__(**kwargs)
@@ -790,15 +823,17 @@ def softplus_(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, slope=
 
 
 def substract(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of inputs_0-inputs_1
+    """LiRPA implementation of inputs_0-inputs_1
 
-    :param inputs_0: tensor
-    :param inputs_1: tensor
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: tensor
+        inputs_1: tensor
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex domain
-    :return: inputs_0 - inputs_1
+
+    Returns:
+        inputs_0 - inputs_1
     """
     if convex_domain is None:
         convex_domain = {}
@@ -809,15 +844,17 @@ def substract(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HY
 
 
 def add(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of inputs_0+inputs_1
+    """LiRPA implementation of inputs_0+inputs_1
 
-    :param inputs_0: tensor
-    :param inputs_1: tensor
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: tensor
+        inputs_1: tensor
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex domain
-    :return: inputs_0 + inputs_1
+
+    Returns:
+        inputs_0 + inputs_1
     """
     if convex_domain is None:
         convex_domain = {}
@@ -948,15 +985,17 @@ def frac_pos(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, **kwarg
 
 
 def maximum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, finetune=False, **kwargs):
-    """
-    LiRPA implementation of element-wise max
+    """LiRPA implementation of element-wise max
 
-    :param inputs_0: list of tensors
-    :param inputs_1: list of tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: list of tensors
+        inputs_1: list of tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex domain
-    :return: maximum(inputs_0, inputs_1)
+
+    Returns:
+        maximum(inputs_0, inputs_1)
     """
     if convex_domain is None:
         convex_domain = {}
@@ -977,15 +1016,17 @@ def maximum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBR
 
 
 def minimum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, finetune=False, **kwargs):
-    """
-    LiRPA implementation of element-wise min
+    """LiRPA implementation of element-wise min
 
-    :param inputs_0:
-    :param inputs_1:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    Args:
+        inputs_0
+        inputs_1
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -1007,15 +1048,17 @@ def minimum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBR
 
 # convex hull of the maximum between two functions
 def max_(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, axis=-1, finetune=False, **kwargs):
-    """
-    LiRPA implementation of max(x, axis)
+    """LiRPA implementation of max(x, axis)
 
-    :param x: list of tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        x: list of tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
+        axis: axis to perform the maximum
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex domain
-    :param axis: axis to perform the maximum
-    :return: max operation  along an axis
+
+    Returns:
+        max operation  along an axis
     """
 
     if convex_domain is None:
@@ -1193,10 +1236,13 @@ def max_(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, axis=-1, fi
 
 
 def softmax_to_linear(model):
-    """
-    linearize the softmax layer for verification
-    :param model: Keras Model
-    :return: model without the softmax
+    """linearize the softmax layer for verification
+
+    Args:
+        model: Keras Model
+
+    Returns:
+        model without the softmax
     """
     layer = model.layers[-1]
     # check that layer is not an instance of the object Softmax
@@ -1222,11 +1268,14 @@ def linear_to_softmax(model):
 
 
 def minus(inputs, mode=F_HYBRID.name, dc_decomp=False, **kwargs):
-    """
-    LiRPA implementation of minus(x)=-x.
-    :param inputs:
-    :param mode:
-    :return:
+    """LiRPA implementation of minus(x)=-x.
+
+    Args:
+        inputs
+        mode
+
+    Returns:
+
     """
     nb_tensor = StaticVariables(dc_decomp=False, mode=mode).nb_tensors
     if mode == F_IBP.name:
@@ -1269,17 +1318,19 @@ def minus(inputs, mode=F_HYBRID.name, dc_decomp=False, **kwargs):
 
 
 def multiply_old(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of (element-wise) multiply(x,y)=-x*y.
+    """LiRPA implementation of (element-wise) multiply(x,y)=-x*y.
 
-    :param inputs_0: list of tensors
-    :param inputs_1: list of tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: list of tensors
+        inputs_1: list of tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
     whether we return a difference of convex decomposition of our layer
     whether we propagate upper and lower bounds on the values of the gradient
-    :param convex_domain: the type of convex domain
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :return: maximum(inputs_0, inputs_1)
+
+    Returns:
+        maximum(inputs_0, inputs_1)
     """
 
     if convex_domain is None:
@@ -1402,17 +1453,19 @@ def multiply_old(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F
 
 
 def multiply(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of (element-wise) multiply(x,y)=-x*y.
+    """LiRPA implementation of (element-wise) multiply(x,y)=-x*y.
 
-    :param inputs_0: list of tensors
-    :param inputs_1: list of tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: list of tensors
+        inputs_1: list of tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
     whether we return a difference of convex decomposition of our layer
     whether we propagate upper and lower bounds on the values of the gradient
-    :param convex_domain: the type of convex domain
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :return: maximum(inputs_0, inputs_1)
+
+    Returns:
+        maximum(inputs_0, inputs_1)
     """
 
     if convex_domain is None:
@@ -1483,14 +1536,16 @@ def multiply(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYB
 
 
 def permute_dimensions(x, axis, mode=F_HYBRID.name, axis_perm=1):
-    """
-    LiRPA implementation of (element-wise) permute(x,axis)
+    """LiRPA implementation of (element-wise) permute(x,axis)
 
-    :param x: list of input tensors
-    :param axis: axis on which we apply the permutation
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :param axis_perm: see DecomonPermute operator
-    :return:
+    Args:
+        x: list of input tensors
+        axis: axis on which we apply the permutation
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
+        axis_perm: see DecomonPermute operator
+
+    Returns:
+
     """
 
     if len(x[0].shape) <= 2:
@@ -1538,14 +1593,16 @@ def permute_dimensions(x, axis, mode=F_HYBRID.name, axis_perm=1):
 
 
 def broadcast(inputs, n, axis, mode):
-    """
-    LiRPA implementation of broadcasting
+    """LiRPA implementation of broadcasting
 
-    :param inputs:
-    :param n:
-    :param axis:
-    :param mode:
-    :return:
+    Args:
+        inputs
+        n
+        axis
+        mode
+
+    Returns:
+
     """
     nb_tensor = StaticVariables(dc_decomp=False, mode=mode).nb_tensors
     if mode == F_IBP.name:
@@ -1592,13 +1649,15 @@ def broadcast(inputs, n, axis, mode):
 
 
 def split(input_, axis=-1, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of split
+    """LiRPA implementation of split
 
-    :param input_:
-    :param axis:
-    :param mode:
-    :return:
+    Args:
+        input_
+        axis
+        mode
+
+    Returns:
+
     """
 
     nb_tensor = StaticVariables(dc_decomp=False, mode=mode).nb_tensors
@@ -1647,15 +1706,17 @@ def split(input_, axis=-1, mode=F_HYBRID.name):
 
 
 def sort(input_, axis=-1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of sort by selection
+    """LiRPA implementation of sort by selection
 
-    :param input_:
-    :param axis:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    Args:
+        input_
+        axis
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -1769,14 +1830,16 @@ def sort(input_, axis=-1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.nam
 
 
 def pow(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of pow(x )=x**2
+    """LiRPA implementation of pow(x )=x**2
 
-    :param inputs_:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    Args:
+        inputs_
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -1785,14 +1848,16 @@ def pow(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
 
 
 def abs(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of |x|
+    """LiRPA implementation of |x|
 
-    :param inputs_:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    Args:
+        inputs_
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -1806,13 +1871,16 @@ def abs(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
 
 
 def frac_pos_hull(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of 1/x for x>0
-    :param inputs_:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    """LiRPA implementation of 1/x for x>0
+
+    Args:
+        inputs_
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -1855,14 +1923,17 @@ def frac_pos_hull(inputs_, dc_decomp=False, convex_domain=None, mode=F_HYBRID.na
 
 # convex hull for min
 def min_(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, axis=-1, finetune=False, **kwargs):
-    """
-    LiRPA implementation of min(x, axis=axis)
-    :param x:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :param axis:
-    :return:
+    """LiRPA implementation of min(x, axis=axis)
+
+    Args:
+        x
+        dc_decomp
+        convex_domain
+        mode
+        axis
+
+    Returns:
+
     """
     # return - max - x
     if convex_domain is None:
@@ -1936,14 +2007,16 @@ def expand_dims(inputs_, dc_decomp=False, mode=F_HYBRID.name, axis=-1, **kwargs)
 def log(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, **kwargs):
     """Exponential activation function.
 
-    :param x: list of input tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        x: list of input tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex input domain
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
+        **kwargs: extra parameters
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex input domain
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :param kwargs: extra parameters
-    :return: the updated list of tensors
 
+    Returns:
+        the updated list of tensors
     """
     if convex_domain is None:
         convex_domain = {}
@@ -1987,14 +2060,16 @@ def log(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, **kwargs):
 def exp(x, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name, **kwargs):
     """Exponential activation function.
 
-    :param x: list of input tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        x: list of input tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex input domain
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
+        **kwargs: extra parameters
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex input domain
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :param kwargs: extra parameters
-    :return: the updated list of tensors
 
+    Returns:
+        the updated list of tensors
     """
     if convex_domain is None:
         convex_domain = {}

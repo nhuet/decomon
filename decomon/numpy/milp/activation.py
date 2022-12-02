@@ -30,9 +30,11 @@ def bound_B(x_min, x_max, m, W_up, b_up, W_low, b_low, mask, solver=ORTOOLS):
 def deserialize(name):
     """Get the activation from name.
 
-    :param name: name of the method.
+    Args:
+        name: name of the method.
     among the implemented Keras activation function.
-    :return:
+
+    Returns:
 
     """
     name = name.lower()
@@ -46,9 +48,11 @@ def deserialize(name):
 def get(identifier):
     """Get the `identifier` activation function.
 
-    :param identifier: None or str, name of the function.
-    :return: The activation function, `linear` if `identifier` is None.
-    :raises: ValueError if unknown identifier
+    Args:
+        identifier: None or str, name of the function.
+
+    Returns:
+        The activation function, `linear` if `identifier` is None.
 
     """
     if identifier is None:
@@ -59,8 +63,7 @@ def get(identifier):
 
 
 def bound_A_ortools(x_min, x_max, m, W_up, b_up, W_low, b_low, mask_A):
-    """
-    x_min: (n_batch, n_dim)
+    """x_min: (n_batch, n_dim)
     x_max: (n_batch, n_dim)
     m: discrete positive constant
     W_up : (n_batch, n_dim, n_out)
@@ -134,8 +137,7 @@ def bound_A_ortools(x_min, x_max, m, W_up, b_up, W_low, b_low, mask_A):
 
 
 def bound_B_ortools(x_min, x_max, m, W_up, b_up, W_low, b_low, mask_B):
-    """
-    x_min: (n_batch, n_dim)
+    """x_min: (n_batch, n_dim)
     x_max: (n_batch, n_dim)
     m: discrete positive constant
     W_up : (n_batch, n_dim, n_out)

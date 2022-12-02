@@ -9,18 +9,20 @@ from ..layers.utils import get_upper
 
 
 class Adversarial_score(Layer):
-    """
-    Training with symbolic LiRPA bounds for promoting adversarial robustness
-    """
+    """Training with symbolic LiRPA bounds for promoting adversarial robustness"""
 
     def __init__(self, ibp, forward, mode, convex_domain, **kwargs):
         """
-
-        :param ibp: boolean that indicates whether we propagate constant bounds
-        :param forward: boolean that indicates whether we propagate affine bounds
-        :param mode: str: 'backward' or 'forward' whether we doforward or backward linear relaxation
-        :param convex_domain: the type of input convex domain for the linear relaxation
-        :param kwargs:
+        Args:
+            ibp: boolean that indicates whether we propagate constant
+                bounds
+            forward: boolean that indicates whether we propagate affine
+                bounds
+            mode: str: 'backward' or 'forward' whether we doforward or
+                backward linear relaxation
+            convex_domain: the type of input convex domain for the
+                linear relaxation
+            **kwargs
         """
         super().__init__(**kwargs)
         self.ibp = ibp
@@ -41,9 +43,12 @@ class Adversarial_score(Layer):
 
     def call(self, inputs):
         """
+        Args:
+            inputs
 
-        :param inputs:
-        :return: adv_score <0 if the predictionis robust on the input convex domain
+        Returns:
+            adv_score <0 if the predictionis robust on the input convex
+            domain
         """
 
         y_tensor = inputs[-1]
@@ -119,18 +124,20 @@ class Adversarial_score(Layer):
 
 
 class Adversarial_check(Layer):
-    """
-    Training with symbolic LiRPA bounds for promoting adversarial robustness
-    """
+    """Training with symbolic LiRPA bounds for promoting adversarial robustness"""
 
     def __init__(self, ibp, forward, mode, convex_domain, **kwargs):
         """
-
-        :param ibp: boolean that indicates whether we propagate constant bounds
-        :param forward: boolean that indicates whether we propagate affine bounds
-        :param mode: str: 'backward' or 'forward' whether we doforward or backward linear relaxation
-        :param convex_domain: the type of input convex domain for the linear relaxation
-        :param kwargs:
+        Args:
+            ibp: boolean that indicates whether we propagate constant
+                bounds
+            forward: boolean that indicates whether we propagate affine
+                bounds
+            mode: str: 'backward' or 'forward' whether we doforward or
+                backward linear relaxation
+            convex_domain: the type of input convex domain for the
+                linear relaxation
+            **kwargs
         """
         super().__init__(**kwargs)
         self.ibp = ibp
@@ -148,9 +155,12 @@ class Adversarial_check(Layer):
 
     def call(self, inputs):
         """
+        Args:
+            inputs
 
-        :param inputs:
-        :return: adv_score <0 if the predictionis robust on the input convex domain
+        Returns:
+            adv_score <0 if the predictionis robust on the input convex
+            domain
         """
 
         y_tensor = inputs[-1]
@@ -226,10 +236,13 @@ class Adversarial_check(Layer):
 
 
 def build_formal_adv_check_model(decomon_model):
-    """
-    automatic design on a Keras  model which predicts a certificate of adversarial robustness
-    :param decomon_model:
-    :return:
+    """automatic design on a Keras  model which predicts a certificate of adversarial robustness
+
+    Args:
+        decomon_model
+
+    Returns:
+
     """
     # check type and that backward pass is available
 
@@ -246,10 +259,13 @@ def build_formal_adv_check_model(decomon_model):
 
 
 def build_formal_adv_model(decomon_model):
-    """
-    automatic design on a Keras  model which predicts a certificate of adversarial robustness
-    :param decomon_model:
-    :return:
+    """automatic design on a Keras  model which predicts a certificate of adversarial robustness
+
+    Args:
+        decomon_model
+
+    Returns:
+
     """
     # check type and that backward pass is available
 
@@ -266,9 +282,7 @@ def build_formal_adv_model(decomon_model):
 
 
 class Upper_score(Layer):
-    """
-    Training with symbolic LiRPA bounds for limiting the local maximum of a neural network
-    """
+    """Training with symbolic LiRPA bounds for limiting the local maximum of a neural network"""
 
     def __init__(self, ibp, forward, mode, convex_domain, **kwargs):
         super().__init__(**kwargs)
@@ -287,9 +301,12 @@ class Upper_score(Layer):
 
     def call(self, inputs):
         """
+        Args:
+            inputs
 
-        :param inputs:
-        :return: upper_score <=0 if the maximum of the neural network is lower than the target
+        Returns:
+            upper_score <=0 if the maximum of the neural network is
+            lower than the target
         """
 
         y_tensor = inputs[-1]
@@ -319,10 +336,13 @@ class Upper_score(Layer):
 
 
 def build_formal_upper_model(decomon_model):
-    """
-    automatic design on a Keras  model which predicts a certificate on the local upper bound
-    :param decomon_model:
-    :return:
+    """automatic design on a Keras  model which predicts a certificate on the local upper bound
+
+    Args:
+        decomon_model
+
+    Returns:
+
     """
     # check type and that backward pass is available
 

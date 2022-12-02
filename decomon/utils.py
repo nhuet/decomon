@@ -68,20 +68,26 @@ class M_REC_BACKWARD:
 
 # linear hull for activation function
 def relu_prime(x):
-    """
-    Derivative of relu
-    :param x:
-    :return:
+    """Derivative of relu
+
+    Args:
+        x
+
+    Returns:
+
     """
 
     return K.clip(K.sign(x), K.cast(0, dtype=x.dtype), K.cast(1, dtype=x.dtype))
 
 
 def sigmoid_prime(x):
-    """
-    Derivative of sigmoid
-    :param x:
-    :return:
+    """Derivative of sigmoid
+
+    Args:
+        x
+
+    Returns:
+
     """
 
     s_x = K.sigmoid(x)
@@ -89,10 +95,13 @@ def sigmoid_prime(x):
 
 
 def tanh_prime(x):
-    """
-    Derivative of tanh
-    :param x:
-    :return:
+    """Derivative of tanh
+
+    Args:
+        x
+
+    Returns:
+
     """
 
     s_x = K.tanh(x)
@@ -100,10 +109,13 @@ def tanh_prime(x):
 
 
 def softsign_prime(x):
-    """
-    Derivative of softsign
-    :param x:
-    :return:
+    """Derivative of softsign
+
+    Args:
+        x
+
+    Returns:
+
     """
 
     return K.cast(1.0, dtype=x.dtype) / K.pow(K.cast(1.0, dtype=x.dtype) + K.abs(x), K.cast(2, dtype=x.dtype))
@@ -117,14 +129,17 @@ def softsign_prime(x):
 
 # case 1: a box
 def get_upper_box(x_min, x_max, w, b):
-    """
-    #compute the max of an affine function
+    """#compute the max of an affine function
     within a box (hypercube) defined by its extremal corners
-    :param x_min: lower bound of the box domain
-    :param x_max: upper bound of the box domain
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: max_(x >= x_min, x<=x_max) w*x + b
+
+    Args:
+        x_min: lower bound of the box domain
+        x_max: upper bound of the box domain
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        max_(x >= x_min, x<=x_max) w*x + b
     """
 
     if len(w.shape) == len(b.shape):  # identity function
@@ -147,12 +162,14 @@ def get_upper_box(x_min, x_max, w, b):
 
 def get_lower_box(x_min, x_max, w, b):
     """
+    Args:
+        x_min: lower bound of the box domain
+        x_max: upper bound of the box domain
+        w_l: weights of the affine lower bound
+        b_l: bias of the affine lower bound
 
-    :param x_min: lower bound of the box domain
-    :param x_max: upper bound of the box domain
-    :param w_l: weights of the affine lower bound
-    :param b_l: bias of the affine lower bound
-    :return: min_(x >= x_min, x<=x_max) w*x + b
+    Returns:
+        min_(x >= x_min, x<=x_max) w*x + b
     """
 
     if len(w.shape) == len(b.shape):
@@ -175,12 +192,15 @@ def get_lower_box(x_min, x_max, w, b):
 
 # case 2 : a ball
 def get_lq_norm(x, p, axis=-1):
-    """
-    compute Lp norm (p=1 or 2)
-    :param x: tensor
-    :param p: the power must be an integer in (1, 2)
-    :param axis: the axis on which we compute the norm
-    :return: ||w||^p
+    """compute Lp norm (p=1 or 2)
+
+    Args:
+        x: tensor
+        p: the power must be an integer in (1, 2)
+        axis: the axis on which we compute the norm
+
+    Returns:
+        ||w||^p
     """
 
     if p not in [1, 2]:
@@ -196,14 +216,17 @@ def get_lq_norm(x, p, axis=-1):
 
 
 def get_upper_ball(x_0, eps, p, w, b):
-    """
-    max of an affine function over an Lp ball
-    :param x_0: the center of the ball
-    :param eps: the radius
-    :param p: the type of Lp norm considered
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: max_(|x - x_0|_p<= eps) w*x + b
+    """max of an affine function over an Lp ball
+
+    Args:
+        x_0: the center of the ball
+        eps: the radius
+        p: the type of Lp norm considered
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        max_(|x - x_0|_p<= eps) w*x + b
     """
     if len(w.shape) == len(b.shape):
         return x_0 + eps
@@ -227,14 +250,17 @@ def get_upper_ball(x_0, eps, p, w, b):
 
 
 def get_lower_ball(x_0, eps, p, w, b):
-    """
-    min of an affine fucntion over an Lp ball
-    :param x_0: the center of the ball
-    :param eps: the radius
-    :param p: the type of Lp norm considered
-    :param w: weights of the affine function
-    :param b: bias of the affine function
-    :return: min_(|x - x_0|_p<= eps) w*x + b
+    """min of an affine fucntion over an Lp ball
+
+    Args:
+        x_0: the center of the ball
+        eps: the radius
+        p: the type of Lp norm considered
+        w: weights of the affine function
+        b: bias of the affine function
+
+    Returns:
+        min_(|x - x_0|_p<= eps) w*x + b
     """
     if len(w.shape) == len(b.shape):
         return x_0 - eps
@@ -258,14 +284,17 @@ def get_lower_ball(x_0, eps, p, w, b):
 
 
 def get_upper(x, w, b, convex_domain=None):
-    """
-    Meta function that aggregates all the way
+    """Meta function that aggregates all the way
     to compute a constant upper bounds depending on the convex domain
-    :param x: the tensors that represent the domain
-    :param w: the weights of the affine function
-    :param b: the bias
-    :param convex_domain: the type of convex domain (see ???)
-    :return: a constant upper bound of the affine function
+
+    Args:
+        x: the tensors that represent the domain
+        w: the weights of the affine function
+        b: the bias
+        convex_domain: the type of convex domain (see ???)
+
+    Returns:
+        a constant upper bound of the affine function
     """
 
     if convex_domain is None:
@@ -294,14 +323,13 @@ def get_upper(x, w, b, convex_domain=None):
 
 
 def get_lower(x, w, b, convex_domain=None):
-    """
-     Meta function that aggregates all the way
-     to compute a constant lower bound depending on the convex domain
-    :param x: the tensors that represent the domain
-    :param w: the weights of the affine function
-    :param b: the bias
-    :param convex_domain: the type of convex domain (see ???)
-    :return: a constant upper bound of the affine function
+    """Meta function that aggregates all the way
+    to compute a constant lower bound depending on the convex domain
+        :param x: the tensors that represent the domain
+        :param w: the weights of the affine function
+        :param b: the bias
+        :param convex_domain: the type of convex domain (see ???)
+        :return: a constant upper bound of the affine function
     """
     if convex_domain is None:
         convex_domain = {}
@@ -582,15 +610,17 @@ def get_linear_softplus_hull(upper, lower, slope, **kwargs):
 
 
 def maximum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of element-wise max
+    """LiRPA implementation of element-wise max
 
-    :param inputs_0: list of tensors
-    :param inputs_1: list of tensors
-    :param dc_decomp: boolean that indicates
+    Args:
+        inputs_0: list of tensors
+        inputs_1: list of tensors
+        dc_decomp: boolean that indicates
+        convex_domain: the type of convex domain
     whether we return a difference of convex decomposition of our layer
-    :param convex_domain: the type of convex domain
-    :return: maximum(inputs_0, inputs_1)
+
+    Returns:
+        maximum(inputs_0, inputs_1)
     """
     if convex_domain is None:
         convex_domain = {}
@@ -612,15 +642,17 @@ def maximum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBR
 
 
 def minimum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBRID.name):
-    """
-    LiRPA implementation of element-wise min
+    """LiRPA implementation of element-wise min
 
-    :param inputs_0:
-    :param inputs_1:
-    :param dc_decomp:
-    :param convex_domain:
-    :param mode:
-    :return:
+    Args:
+        inputs_0
+        inputs_1
+        dc_decomp
+        convex_domain
+        mode
+
+    Returns:
+
     """
 
     if convex_domain is None:
@@ -629,15 +661,17 @@ def minimum(inputs_0, inputs_1, dc_decomp=False, convex_domain=None, mode=F_HYBR
 
 
 def get_linear_hull_s_shape(x, func=K.sigmoid, f_prime=sigmoid_prime, convex_domain=None, mode=F_HYBRID.name, **kwargs):
-    """
-    Computing the linear hull of shape functions  given the pre activation neurons
+    """Computing the linear hull of shape functions  given the pre activation neurons
 
-    :param x: list of input tensors
-    :param func: the function (sigmoid, tanh, softsign...)
-    :param f_prime: the derivative of the function (sigmoid_prime...)
-    :param convex_domain: the type of convex input domain
-    :param mode: type of Forward propagation (IBP, Forward or Hybrid)
-    :return: the updated list of tensors
+    Args:
+        x: list of input tensors
+        func: the function (sigmoid, tanh, softsign...)
+        f_prime: the derivative of the function (sigmoid_prime...)
+        convex_domain: the type of convex input domain
+        mode: type of Forward propagation (IBP, Forward or Hybrid)
+
+    Returns:
+        the updated list of tensors
     """
 
     if convex_domain is None:
@@ -732,15 +766,18 @@ def get_linear_hull_s_shape(x, func=K.sigmoid, f_prime=sigmoid_prime, convex_dom
 
 
 def get_t_upper(u_c_flat, l_c_flat, s_l, func=K.sigmoid, f_prime=sigmoid_prime):
-    """
-    linear interpolation between lower and upper bounds on the function func to have a symbolic approximation of the best
+    """linear interpolation between lower and upper bounds on the function func to have a symbolic approximation of the best
     coefficient for the affine upper bound
-    :param u_c_flat: flatten tensor of constant upper bound
-    :param l_c_flat: flatten tensor of constant lower bound
-    :param s_l: lowest value of the function func on the domain
-    :param func: the function (sigmoid, tanh,  softsign)
-    :param f_prime: the derivative of the function
-    :return: the upper affine bounds in this subcase
+
+    Args:
+        u_c_flat: flatten tensor of constant upper bound
+        l_c_flat: flatten tensor of constant lower bound
+        s_l: lowest value of the function func on the domain
+        func: the function (sigmoid, tanh,  softsign)
+        f_prime: the derivative of the function
+
+    Returns:
+        the upper affine bounds in this subcase
     """
 
     o_value = K.cast(1.0, dtype=u_c_flat.dtype)
@@ -781,15 +818,18 @@ def get_t_upper(u_c_flat, l_c_flat, s_l, func=K.sigmoid, f_prime=sigmoid_prime):
 
 
 def get_t_lower(u_c_flat, l_c_flat, s_u, func=K.sigmoid, f_prime=sigmoid_prime):
-    """
-    linear interpolation between lower and upper bounds on the function func to have a symbolic approximation of the best
+    """linear interpolation between lower and upper bounds on the function func to have a symbolic approximation of the best
     coefficient for the affine lower bound
-    :param u_c_flat: flatten tensor of constant upper bound
-    :param l_c_flat: flatten tensor of constant lower bound
-    :param s_u: highest value of the function func on the domain
-    :param func: the function (sigmoid, tanh,  softsign)
-    :param f_prime: the derivative of the function
-    :return: the lower affine bounds in this subcase
+
+    Args:
+        u_c_flat: flatten tensor of constant upper bound
+        l_c_flat: flatten tensor of constant lower bound
+        s_u: highest value of the function func on the domain
+        func: the function (sigmoid, tanh,  softsign)
+        f_prime: the derivative of the function
+
+    Returns:
+        the lower affine bounds in this subcase
     """
     z_value = K.cast(0.0, dtype=u_c_flat.dtype)
     o_value = K.cast(1.0, dtype=u_c_flat.dtype)

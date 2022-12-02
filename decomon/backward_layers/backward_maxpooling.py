@@ -14,9 +14,7 @@ from .utils import V_slope, backward_max_
 
 
 class BackwardMaxPooling2D(Layer):
-    """
-    Backward  LiRPA of MaxPooling2D
-    """
+    """Backward  LiRPA of MaxPooling2D"""
 
     def __init__(
         self,
@@ -156,13 +154,15 @@ class BackwardMaxPooling2D(Layer):
         slope=V_slope.name,
     ):
         """
+        Args:
+            inputs
+            pool_size
+            strides
+            padding
+            data_format
 
-        :param inputs:
-        :param pool_size:
-        :param strides:
-        :param padding:
-        :param data_format:
-        :return:
+        Returns:
+
         """
 
         if convex_domain is None:

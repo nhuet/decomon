@@ -522,8 +522,7 @@ def get_backward_layer(node, layer_map, forward_map, mode, back_bounds, input_di
     else:
         input_layer_ = []
 
-        """
-        if not isinstance(layer_, Conv2D) or layer_.activation_name!='linear' or not len(back_bounds): # Linear layer do not need recursive calls
+        """if not isinstance(layer_, Conv2D) or layer_.activation_name!='linear' or not len(back_bounds): # Linear layer do not need recursive calls
             for node_i in input_nodes:
                 tmp = get_output_layer(node_i, layer_map, forward_map, mode, input_dim, **kwargs)
 

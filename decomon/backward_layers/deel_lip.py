@@ -28,9 +28,7 @@ from .utils import (
 
 
 class BackwardDense(Layer):
-    """
-    Backward  LiRPA of Dense
-    """
+    """Backward  LiRPA of Dense"""
 
     def __init__(
         self,
@@ -80,9 +78,7 @@ class BackwardDense(Layer):
 
 
 class BackwardGroupSort2(Layer):
-    """
-    Backward LiRPA of GroupSort2
-    """
+    """Backward LiRPA of GroupSort2"""
 
     def __init__(
         self,

@@ -1,6 +1,4 @@
-"""
-Typing module
-"""
+"""Typing module"""
 from __future__ import absolute_import
 
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union

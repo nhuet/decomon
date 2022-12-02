@@ -24,9 +24,7 @@ from ..layers.utils import F_FORWARD, F_HYBRID, ClipAlpha
 
 
 class GradientDense(Layer):
-    """
-    Gradient LiRPA of Dense Layer
-    """
+    """Gradient LiRPA of Dense Layer"""
 
     def __init__(
         self,

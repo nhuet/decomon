@@ -15,8 +15,7 @@ from .core import F_FORWARD, F_HYBRID, F_IBP, DecomonLayer
 
 # step 1: compute the maximum
 class DecomonMaxPooling2D(MaxPooling2D, DecomonLayer):
-    """
-    LiRPA implementation of MaxPooling2D layers.
+    """LiRPA implementation of MaxPooling2D layers.
     See Keras official documentation for further details on the MaxPooling2D operator
 
     """
@@ -113,9 +112,11 @@ class DecomonMaxPooling2D(MaxPooling2D, DecomonLayer):
 
     def compute_output_shape(self, input_shape):
         """
+        Args:
+            input_shape
 
-        :param input_shape:
-        :return:
+        Returns:
+
         """
 
         if self.grad_bounds:
