@@ -15,7 +15,7 @@ local: true
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial1_sinus-interactive.ipynb)
 
 
-***Bounding the output of a Neural Network trained on a sinusoidal function***
+_**Bounding the output of a Neural Network trained on a sinusoidal function**_
 
 After training a model, we want to make sure that the model is *smooth*: it will predict almost the same output for any data "close" to the initial one, showing some robustness to perturbation. 
 
@@ -31,7 +31,7 @@ What we will show is how decomon module is able to provide guaranteed bounds tha
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial2_noise_sensor.ipynb)
 
-***Local Robustness to sensor noise for Regression***
+_**Local Robustness to sensor noise for Regression**_
 
 Embedding simulation models developed during the design
 of a platform opens a lot of potential new functionalities
@@ -49,7 +49,7 @@ Local Robustness to **sensoir noise** can be performed efficiently thanks to for
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial3_adversarial_attack.ipynb)
 
-***Local Robustness to Adversarial Attacks for classification tasks***
+_**Local Robustness to Adversarial Attacks for classification tasks**_
 
 After training a model, we want to make sure that the model will give the same output for any images "close" to the initial one, showing some robustness to perturbation. 
 
@@ -67,7 +67,7 @@ What we will show is the use of decomon module to assess the robustness of the p
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial4_adversarial_brightness.ipynb)
 
-***Local Robustness to Brightness perturbations***
+_**Local Robustness to Brightness perturbations**_
 
 After training a model, we want to make sure that the model will give the same output for any images "close" to the initial one, showing some robustness to perturbation. 
 
