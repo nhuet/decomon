@@ -1,0 +1,20 @@
+decomon.numpy package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   decomon.numpy.backward
+   decomon.numpy.milp
+   decomon.numpy.models
+
+Module contents
+---------------
+
+.. automodule:: decomon.numpy
+   :members:
+   :undoc-members:
+   :show-inheritance:
