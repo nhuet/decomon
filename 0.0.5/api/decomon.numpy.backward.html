@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>decomon.numpy.backward package &mdash; DecoMon 0.0.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/versions.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="decomon.numpy.milp package" href="decomon.numpy.milp.html" />
+    <link rel="prev" title="decomon.numpy package" href="decomon.numpy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> DecoMon
+          </a>
+              <div class="version">
+                0.0.5
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="decomon.html">decomon package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="decomon.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="decomon.applications.html">decomon.applications package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.backward_layers.html">decomon.backward_layers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.corners.html">decomon.corners package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.gradient.html">decomon.gradient package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.layers.html">decomon.layers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.metrics.html">decomon.metrics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.models.html">decomon.models package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="decomon.numpy.html">decomon.numpy package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decomon.types.html">decomon.types package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="decomon.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decomon.html#module-decomon.utils">decomon.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decomon.html#module-decomon.wrapper">decomon.wrapper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decomon.html#module-decomon.wrapper_with_tuning">decomon.wrapper_with_tuning module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decomon.html#module-decomon">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/airbus/decomon">Github</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DecoMon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="decomon.html">decomon package</a></li>
+          <li class="breadcrumb-item"><a href="decomon.numpy.html">decomon.numpy package</a></li>
+      <li class="breadcrumb-item active">decomon.numpy.backward package</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="decomon-numpy-backward-package">
+<h1>decomon.numpy.backward package<a class="headerlink" href="#decomon-numpy-backward-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-decomon.numpy.backward.activation">
+<span id="decomon-numpy-backward-activation-module"></span><h2>decomon.numpy.backward.activation module<a class="headerlink" href="#module-decomon.numpy.backward.activation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_elu">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_elu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_elu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_elu" title="Permalink to this definition"></a></dt>
+<dd><p>Backward  LiRPA of Exponential Linear Unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_exponential">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_exponential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_exponential"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_exponential" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPAof exponential</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_hard_sigmoid">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_hard_sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_hard_sigmoid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_hard_sigmoid" title="Permalink to this definition"></a></dt>
+<dd><p>Backward  LiRPA of hard sigmoid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_linear">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPA of linear</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_relu">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_relu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_relu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_relu" title="Permalink to this definition"></a></dt>
+<dd><p>Backward  LiRPA of relu</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>alpha</strong> – </p></li>
+<li><p><strong>max_value</strong> – </p></li>
+<li><p><strong>threshold</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_selu">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_selu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_selu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_selu" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPA of Scaled Exponential Linear Unit (SELU)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_sigmoid">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_sigmoid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_sigmoid" title="Permalink to this definition"></a></dt>
+<dd><p>Backward  LiRPA of sigmoid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_softmax">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_softmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_softmax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_softmax" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPA of softmax</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+<li><p><strong>axis</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_softplus">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_softplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_softplus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_softplus" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPA of softplus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_softsign">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_softsign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_softsign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_softsign" title="Permalink to this definition"></a></dt>
+<dd><p>Backward LiRPA of softsign</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – </p></li>
+<li><p><strong>w_out_u</strong> – </p></li>
+<li><p><strong>b_out_u</strong> – </p></li>
+<li><p><strong>w_out_l</strong> – </p></li>
+<li><p><strong>b_out_l</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – backward slope</p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.backward_tanh">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">backward_tanh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc_decomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'volume-slope'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#backward_tanh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.backward_tanh" title="Permalink to this definition"></a></dt>
+<dd><p>Backward  LiRPA of tanh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – </p></li>
+<li><p><strong>dc_decomp</strong> – </p></li>
+<li><p><strong>convex_domain</strong> – </p></li>
+<li><p><strong>slope</strong> – </p></li>
+<li><p><strong>mode</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.deserialize">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#deserialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.deserialize" title="Permalink to this definition"></a></dt>
+<dd><p>Get the activation from name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the method.</p>
+</dd>
+</dl>
+<p>among the implemented Keras activation function.</p>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.activation.get">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.activation.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/activation.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.activation.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get the <cite>identifier</cite> activation function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>identifier</strong> – None or str, name of the function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The activation function, <cite>linear</cite> if <cite>identifier</cite> is None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-decomon.numpy.backward.core">
+<span id="decomon-numpy-backward-core-module"></span><h2>decomon.numpy.backward.core module<a class="headerlink" href="#module-decomon.numpy.backward.core" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="decomon.numpy.backward.core.BackwardNumpyLayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.core.</span></span><span class="sig-name descname"><span class="pre">BackwardNumpyLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keras_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/core.html#BackwardNumpyLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.core.BackwardNumpyLayer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.core.BackwardNumpyLayer.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/core.html#BackwardNumpyLayer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.core.BackwardNumpyLayer.call" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.core.BackwardNumpyLayer.store_layer">
+<span class="sig-name descname"><span class="pre">store_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reuse_slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/core.html#BackwardNumpyLayer.store_layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.core.BackwardNumpyLayer.store_layer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.core.BackwardNumpyLayer.store_output">
+<span class="sig-name descname"><span class="pre">store_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reuse_slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/core.html#BackwardNumpyLayer.store_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.core.BackwardNumpyLayer.store_output" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.core.BackwardNumpyLayer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/core.html#BackwardNumpyLayer.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.core.BackwardNumpyLayer.update" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-decomon.numpy.backward.layers">
+<span id="decomon-numpy-backward-layers-module"></span><h2>decomon.numpy.backward.layers module<a class="headerlink" href="#module-decomon.numpy.backward.layers" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.layers.</span></span><span class="sig-name descname"><span class="pre">BackwardNumpyActivation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keras_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#decomon.numpy.backward.core.BackwardNumpyLayer" title="decomon.numpy.backward.core.BackwardNumpyLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackwardNumpyLayer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation.call" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation.call_no_previous">
+<span class="sig-name descname"><span class="pre">call_no_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation.call_no_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation.call_no_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation.call_previous">
+<span class="sig-name descname"><span class="pre">call_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation.call_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation.call_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation.store_layer">
+<span class="sig-name descname"><span class="pre">store_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reuse_slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation.store_layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation.store_layer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyActivation.store_output">
+<span class="sig-name descname"><span class="pre">store_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">joint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reuse_slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyActivation.store_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyActivation.store_output" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyDense">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.layers.</span></span><span class="sig-name descname"><span class="pre">BackwardNumpyDense</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keras_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyDense"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyDense" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#decomon.numpy.backward.core.BackwardNumpyLayer" title="decomon.numpy.backward.core.BackwardNumpyLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackwardNumpyLayer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyDense.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyDense.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyDense.call" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyDense.call_no_previous">
+<span class="sig-name descname"><span class="pre">call_no_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyDense.call_no_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyDense.call_no_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyInputLayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.layers.</span></span><span class="sig-name descname"><span class="pre">BackwardNumpyInputLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keras_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyInputLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyInputLayer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#decomon.numpy.backward.core.BackwardNumpyLayer" title="decomon.numpy.backward.core.BackwardNumpyLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackwardNumpyLayer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyInputLayer.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyInputLayer.call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyInputLayer.call" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyInputLayer.call_no_previous">
+<span class="sig-name descname"><span class="pre">call_no_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyInputLayer.call_no_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyInputLayer.call_no_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.BackwardNumpyInputLayer.call_previous">
+<span class="sig-name descname"><span class="pre">call_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#BackwardNumpyInputLayer.call_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.BackwardNumpyInputLayer.call_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.layers.get_backward">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.layers.</span></span><span class="sig-name descname"><span class="pre">get_backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keras_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'forward'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/layers.html#get_backward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.layers.get_backward" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-decomon.numpy.backward.utils">
+<span id="decomon-numpy-backward-utils-module"></span><h2>decomon.numpy.backward.utils module<a class="headerlink" href="#module-decomon.numpy.backward.utils" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.compute_A">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">compute_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stable_coeff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#compute_A"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.compute_A" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.compute_B">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">compute_B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stable_coeff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#compute_B"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.compute_B" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_hull_relu">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_hull_relu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_hull_relu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_hull_relu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_hull_relu_continuous">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_hull_relu_continuous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_hull_relu_continuous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_hull_relu_continuous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_hull_relu_quantized">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_hull_relu_quantized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_hull_relu_quantized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_hull_relu_quantized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_lower">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_lower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_lower"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_lower" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_lower_crown">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_lower_crown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_lower_crown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_lower_crown" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_linear_lower_crown_old">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_lower_crown_old</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_linear_lower_crown_old"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_linear_lower_crown_old" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_lower">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_lower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_lower"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_lower" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_lower_box">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_lower_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_lower_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_lower_box" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – array (n_batch, 2, n_in)</p></li>
+<li><p><strong>w</strong> – array(n_batch, n_in, n_out)</p></li>
+<li><p><strong>b</strong> – array(n_batch, n_out)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>max_x w*x+ b</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_upper">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_upper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convex_domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_upper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_upper" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.get_upper_box">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">get_upper_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#get_upper_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.get_upper_box" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – array (n_batch, 2, n_in)</p></li>
+<li><p><strong>w</strong> – array(n_batch, n_in, n_out)</p></li>
+<li><p><strong>b</strong> – array(n_batch, n_out)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>max_x w*x+ b</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="decomon.numpy.backward.utils.merge_with_previous">
+<span class="sig-prename descclassname"><span class="pre">decomon.numpy.backward.utils.</span></span><span class="sig-name descname"><span class="pre">merge_with_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/decomon/numpy/backward/utils.html#merge_with_previous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#decomon.numpy.backward.utils.merge_with_previous" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-decomon.numpy.backward">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-decomon.numpy.backward" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decomon.numpy.html" class="btn btn-neutral float-left" title="decomon.numpy package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="decomon.numpy.milp.html" class="btn btn-neutral float-right" title="decomon.numpy.milp package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Airbus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions</span>
+      v: 0.0.5
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="docs-versions">
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
