@@ -1,8 +1,10 @@
-name: nb-decomon-py3.7
+name: nb- decomon==0.0.18
+- --extra-index-url https://test.pypi.org/simple/
 channels:
   - defaults
 dependencies:
   - python=3.7
   - pip
   - pip:
-      - ..  # decomon
+      - decomon==0.0.18
+      - --extra-index-url https://test.pypi.org/simple/
