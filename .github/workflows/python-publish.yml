@@ -79,7 +79,7 @@ jobs:
             # install from TestPypi if on a fork
             new_pip_spec_pattern="${new_pip_spec_pattern}\n\1- --extra-index-url https://test.pypi.org/simple/"
           fi
-          sed_command = "s|${old_pip_spec_pattern}|${new_pip_spec_pattern}|"
+          sed_command="s|${old_pip_spec_pattern}|${new_pip_spec_pattern}|"
           sed -i -e "${sed_command}" binder/environment.yml
       - name: push modifications on a dedicated tag
         id: push-tuto-release-tag
