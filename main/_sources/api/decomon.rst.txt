@@ -10,11 +10,10 @@ Subpackages
    decomon.applications
    decomon.backward_layers
    decomon.corners
-   decomon.gradient
    decomon.layers
+   decomon.loading
    decomon.metrics
    decomon.models
-   decomon.numpy
    decomon.types
 
 Submodules

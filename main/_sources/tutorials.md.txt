@@ -14,6 +14,7 @@ local: true
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial1_sinus-interactive.ipynb)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial1_sinus-interactive.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial1_sinus-interactive.ipynb)
 
 
 _**Bounding the output of a Neural Network trained on a sinusoidal function**_
@@ -32,6 +33,7 @@ What we will show is how decomon module is able to provide guaranteed bounds tha
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial2_noise_sensor.ipynb)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial2_noise_sensor.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial2_noise_sensor.ipynb)
 
 _**Local Robustness to sensor noise for Regression**_
 
@@ -51,6 +53,7 @@ Local Robustness to **sensoir noise** can be performed efficiently thanks to for
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial3_adversarial_attack.ipynb)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial3_adversarial_attack.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial3_adversarial_attack.ipynb)
 
 _**Local Robustness to Adversarial Attacks for classification tasks**_
 
@@ -70,6 +73,7 @@ What we will show is the use of decomon module to assess the robustness of the p
 
 [![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial4_adversarial_brightness.ipynb)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial4_adversarial_brightness.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial4_adversarial_brightness.ipynb)
 
 _**Local Robustness to Brightness perturbations**_
 

@@ -68,14 +68,6 @@ decomon.layers.noise module
    :undoc-members:
    :show-inheritance:
 
-decomon.layers.old\_conv module
--------------------------------
-
-.. automodule:: decomon.layers.old_conv
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.layers.reading\_nnet\_acas\_2\_numpy module
 ---------------------------------------------------
 

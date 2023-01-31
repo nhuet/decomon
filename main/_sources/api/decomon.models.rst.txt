@@ -12,14 +12,6 @@ decomon.models.backward\_cloning module
    :undoc-members:
    :show-inheritance:
 
-decomon.models.cloning module
------------------------------
-
-.. automodule:: decomon.models.cloning
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.models.convert module
 -----------------------------
 
@@ -36,30 +28,6 @@ decomon.models.decomon\_sequential module
    :undoc-members:
    :show-inheritance:
 
-decomon.models.draft module
----------------------------
-
-.. automodule:: decomon.models.draft
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.models.draft\_backward\_cloning module
-----------------------------------------------
-
-.. automodule:: decomon.models.draft_backward_cloning
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.models.draft\_cloning\_bis module
------------------------------------------
-
-.. automodule:: decomon.models.draft_cloning_bis
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.models.forward\_cloning module
 --------------------------------------
 
@@ -72,30 +40,6 @@ decomon.models.models module
 ----------------------------
 
 .. automodule:: decomon.models.models
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.models.old\_backward\_cloning module
---------------------------------------------
-
-.. automodule:: decomon.models.old_backward_cloning
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.models.old\_forward\_cloning module
--------------------------------------------
-
-.. automodule:: decomon.models.old_forward_cloning
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.models.tmp\_clone\_backward module
-------------------------------------------
-
-.. automodule:: decomon.models.tmp_clone_backward
    :members:
    :undoc-members:
    :show-inheritance:

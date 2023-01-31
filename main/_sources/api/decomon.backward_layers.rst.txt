@@ -60,14 +60,6 @@ decomon.backward\_layers.deel\_lip module
    :undoc-members:
    :show-inheritance:
 
-decomon.backward\_layers.draft module
--------------------------------------
-
-.. automodule:: decomon.backward_layers.draft
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.backward\_layers.utils module
 -------------------------------------
 

@@ -9,16 +9,14 @@ within a box domain.
 ````python
 # Imports
 import numpy as np
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import Sequential
 
-
+from decomon import get_lower_box, get_upper_box
 from decomon.models import clone
-from decomon import get_upper_box, get_lower_box, get_range_box, \
-                    get_range_noise
 
 # Toy example with a Keras model:
-model = Sequential([Dense(10, activation='relu', input_dim=2)])
+model = Sequential([Dense(10, activation="relu", input_dim=2)])
 
 # Create a fake box with the right shape
 x_min = np.zeros((1, 2))

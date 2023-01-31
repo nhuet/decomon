@@ -1,15 +1,36 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>decomon.models.convert &mdash; DecoMon main documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
@@ -17,21 +38,41 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/versions.js"></script>
-    <script src="../../../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../../../index.html" class="icon icon-home"> DecoMon
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
                 main
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -39,7 +80,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
@@ -50,48 +102,82 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/airbus/decomon">Github</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">DecoMon</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">decomon.models.convert</li>
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>decomon.models.convert</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   <h1>Source code for decomon.models.convert</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">import</span> <span class="nn">tensorflow.python.keras.backend</span> <span class="k">as</span> <span class="nn">K</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">InputLayer</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="n">Layer</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">InputLayer</span><span class="p">,</span> <span class="n">Lambda</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
 
+<span class="kn">from</span> <span class="nn">decomon.layers.decomon_layers</span> <span class="kn">import</span> <span class="n">to_monotonic</span>
 <span class="kn">from</span> <span class="nn">decomon.models.backward_cloning</span> <span class="kn">import</span> <span class="n">get_backward_model</span> <span class="k">as</span> <span class="n">convert_backward</span>
 <span class="kn">from</span> <span class="nn">decomon.models.forward_cloning</span> <span class="kn">import</span> <span class="n">convert_forward</span>
-<span class="kn">from</span> <span class="nn">decomon.utils</span> <span class="kn">import</span> <span class="n">Ball</span>
-
-<span class="kn">from</span> <span class="nn">..layers.decomon_layers</span> <span class="kn">import</span> <span class="n">to_monotonic</span>
-<span class="kn">from</span> <span class="nn">..layers.utils</span> <span class="kn">import</span> <span class="n">get_lower</span><span class="p">,</span> <span class="n">get_upper</span>
-<span class="kn">from</span> <span class="nn">..numpy.models.convert</span> <span class="kn">import</span> <span class="n">clone</span> <span class="k">as</span> <span class="n">clone_to_numpy</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">DecomonModel</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">convert_2_mode</span><span class="p">,</span> <span class="n">get_mode</span>
+<span class="kn">from</span> <span class="nn">decomon.models.models</span> <span class="kn">import</span> <span class="n">DecomonModel</span>
+<span class="kn">from</span> <span class="nn">decomon.models.utils</span> <span class="kn">import</span> <span class="n">convert_2_mode</span><span class="p">,</span> <span class="n">get_mode</span>
+<span class="kn">from</span> <span class="nn">decomon.utils</span> <span class="kn">import</span> <span class="n">Ball</span><span class="p">,</span> <span class="n">get_lower</span><span class="p">,</span> <span class="n">get_upper</span>
 
 
 <div class="viewcode-block" id="FORWARD_FEED"><a class="viewcode-back" href="../../../api/decomon.models.html#decomon.models.convert.FORWARD_FEED">[docs]</a><span class="k">class</span> <span class="nc">FORWARD_FEED</span><span class="p">:</span>
@@ -195,7 +281,6 @@
 
     <span class="k">if</span> <span class="n">method</span> <span class="o">!=</span> <span class="n">CROWN</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
 
-        <span class="c1"># ibp_, forward_ = get_ibp_forward_from_method(method)</span>
         <span class="n">ibp_</span><span class="p">,</span> <span class="n">forward_</span> <span class="o">=</span> <span class="n">ibp</span><span class="p">,</span> <span class="n">forward</span>
 
         <span class="n">results</span> <span class="o">=</span> <span class="n">convert_forward</span><span class="p">(</span>
@@ -215,7 +300,6 @@
         <span class="p">)</span>
         <span class="n">input_tensors</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">layer_map</span><span class="p">,</span> <span class="n">forward_map</span> <span class="o">=</span> <span class="n">results</span>
 
-        <span class="c1"># forward_map = switch_mode_mapping(forward, IBP=ibp, forward=forward, method=method)</span>
     <span class="k">if</span> <span class="n">get_direction</span><span class="p">(</span><span class="n">method</span><span class="p">)</span> <span class="o">==</span> <span class="n">BACKWARD_FEED</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
         <span class="n">input_tensors</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">layer_map</span><span class="p">,</span> <span class="n">forward_map</span> <span class="o">=</span> <span class="n">convert_backward</span><span class="p">(</span>
             <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
@@ -289,70 +373,13 @@
     <span class="p">]</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">to_keras</span><span class="p">:</span>
-        <span class="c1"># only available option: to_numpy (in the future do get and deserialize function</span>
-        <span class="k">return</span> <span class="n">clone_to_numpy</span><span class="p">(</span>
-            <span class="n">model</span><span class="p">,</span>
-            <span class="n">ibp</span><span class="o">=</span><span class="n">ibp_</span><span class="p">,</span>
-            <span class="n">forward</span><span class="o">=</span><span class="n">forward_</span><span class="p">,</span>
-            <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
-            <span class="n">final_ibp</span><span class="o">=</span><span class="n">final_ibp</span><span class="p">,</span>
-            <span class="n">final_forward</span><span class="o">=</span><span class="n">final_forward</span><span class="p">,</span>
-            <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">,</span>
-            <span class="n">shared</span><span class="o">=</span><span class="n">shared</span><span class="p">,</span>
-            <span class="n">back_bounds</span><span class="o">=</span><span class="n">back_bounds</span><span class="p">,</span>
-            <span class="n">dico_grid</span><span class="o">=</span><span class="n">dico_grid</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-        <span class="p">)</span>
-
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    if not ibp and not forward:</span>
-<span class="sd">        # adapt the mode to the methods</span>
-<span class="sd">        if len(convex_domain)==0 or convex_domain[&#39;name&#39;]!=Ball.name:</span>
-<span class="sd">            if method in [CROWN_HYBRID.name, HYBRID.name]:</span>
-<span class="sd">                ibp=True; forward=True</span>
-<span class="sd">            if method in [IBP.name, CROWN_IBP.name, CROWN.name]:</span>
-<span class="sd">                ibp=True</span>
-<span class="sd">            if method in [FORWARD.name, CROWN_FORWARD.name]:</span>
-<span class="sd">                forward=True</span>
-<span class="sd">        else:</span>
-<span class="sd">            # ball</span>
-<span class="sd">            ibp=True; forward=True</span>
-
-<span class="sd">    if not final_ibp and not final_forward:</span>
-<span class="sd">        if method in [CROWN_IBP.name, CROWN.name]:</span>
-<span class="sd">            final_ibp=ibp</span>
-<span class="sd">            final_forward=True</span>
-<span class="sd">        else:</span>
-<span class="sd">            final_ibp=ibp</span>
-<span class="sd">            final_forward=forward</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Only convert to Keras for now.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">finetune</span><span class="p">:</span>
         <span class="n">finetune_forward</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">finetune_backward</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="n">input_dim_init</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">input_dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">input_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    # temporary</span>
-<span class="sd">    if method == IBP.name:</span>
-<span class="sd">        ibp = True</span>
-<span class="sd">        forward = False</span>
-<span class="sd">    if method == FORWARD.name:</span>
-<span class="sd">        ibp = False</span>
-<span class="sd">        forward = True</span>
-<span class="sd">    if method == CROWN_IBP.name:</span>
-<span class="sd">        ibp = True</span>
-<span class="sd">        forward = False</span>
-<span class="sd">    if method == CROWN_FORWARD.name:</span>
-<span class="sd">        ibp = False</span>
-<span class="sd">        forward = True</span>
-<span class="sd">    if method in [HYBRID.name, CROWN_HYBRID.name]:</span>
-<span class="sd">        ibp = True</span>
-<span class="sd">        forward = True</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="n">input_shape</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">input_shape_vec</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -387,8 +414,8 @@
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">Ball</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
 
-        <span class="n">u_c_tensor</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])(</span><span class="n">z_tensor</span><span class="p">)</span>
-        <span class="n">l_c_tensor</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])(</span><span class="n">z_tensor</span><span class="p">)</span>
+        <span class="n">u_c_tensor</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">z_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)(</span><span class="n">z_tensor</span><span class="p">)</span>
+        <span class="n">l_c_tensor</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">z_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)(</span><span class="n">z_tensor</span><span class="p">)</span>
 
         <span class="n">z_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">z_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="n">o_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">z_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
@@ -427,13 +454,13 @@
             <span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">u_c_tensor</span><span class="p">,</span> <span class="n">l_c_tensor</span> <span class="o">=</span> <span class="n">get_bounds</span><span class="p">(</span><span class="n">z_tensor</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">ibp_</span> <span class="ow">and</span> <span class="n">forward_</span><span class="p">:</span>
-        <span class="c1"># input_tensors = [z_tensor] + [u_c_tensor] * 3 + [l_c_tensor] * 3</span>
         <span class="n">input_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">z_tensor</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">u_c_tensor</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">l_c_tensor</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">ibp_</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">forward_</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">ibp_</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">forward_</span><span class="p">:</span>
         <span class="n">input_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">u_c_tensor</span><span class="p">,</span> <span class="n">l_c_tensor</span><span class="p">]</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">ibp_</span> <span class="ow">and</span> <span class="n">forward_</span><span class="p">:</span>
-        <span class="c1"># input_tensors = [z_tensor] + [u_c_tensor] * 2 + [l_c_tensor] * 2</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">ibp_</span> <span class="ow">and</span> <span class="n">forward_</span><span class="p">:</span>
         <span class="n">input_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">z_tensor</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;not IBP and not forward not implemented&quot;</span><span class="p">)</span>
 
     <span class="n">_</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span>
@@ -475,24 +502,33 @@
 </pre></div>
 
            </div>
+           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Airbus.</p>
-  </div>
+    <p>
+        &#169; Copyright 2022, Airbus.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
   
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -506,11 +542,18 @@
       </dl>
     </div>
   </div>
-<script>
+
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

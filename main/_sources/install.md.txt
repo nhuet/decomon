@@ -44,7 +44,7 @@ Howver it is better to do it beforehand to ensure having a version that is adapt
 to see how to install it properly.
 
 
-## Pip install discrete-optimization library
+## Pip install decomon library
 
 Install decomon from pip:
 

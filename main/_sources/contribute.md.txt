@@ -119,7 +119,7 @@ On Linux or Mac, or with [git-bash](https://gitforwindows.org/) on windows, make
 cd docs
 # generate api doc source files
 rm source/api/decomon*.rst
-sphinx-apidoc -o source/api -f -T ../decomon
+sphinx-apidoc -o source/api -f -T ../src/decomon
 # generate available notebooks list
 python generate_nb_index.py
 # remove previous build
@@ -228,7 +228,7 @@ If you prefer run pre-commit manually, you can remove the hooks with `pre-commit
 
 We try to give some introductory examples via notebooks available in the corresponding `tutorials/` directory.
 
-#### Title and description extraction
+#### Title and description extraction
 The list of these notebooks is automatically inserted in the documentation with a title and a description.
 These are actually extracted from the first cell. To enable that, each notebook should
 
