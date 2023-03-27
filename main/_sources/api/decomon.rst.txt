@@ -7,11 +7,8 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   decomon.applications
    decomon.backward_layers
-   decomon.corners
    decomon.layers
-   decomon.loading
    decomon.metrics
    decomon.models
    decomon.types

@@ -60,22 +60,6 @@ decomon.layers.maxpooling module
    :undoc-members:
    :show-inheritance:
 
-decomon.layers.noise module
----------------------------
-
-.. automodule:: decomon.layers.noise
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-decomon.layers.reading\_nnet\_acas\_2\_numpy module
----------------------------------------------------
-
-.. automodule:: decomon.layers.reading_nnet_acas_2_numpy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.layers.utils module
 ---------------------------
 

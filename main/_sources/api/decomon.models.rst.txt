@@ -20,14 +20,6 @@ decomon.models.convert module
    :undoc-members:
    :show-inheritance:
 
-decomon.models.decomon\_sequential module
------------------------------------------
-
-.. automodule:: decomon.models.decomon_sequential
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 decomon.models.forward\_cloning module
 --------------------------------------
 

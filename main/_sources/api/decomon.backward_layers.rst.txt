@@ -52,6 +52,14 @@ decomon.backward\_layers.core module
    :undoc-members:
    :show-inheritance:
 
+decomon.backward\_layers.crown module
+-------------------------------------
+
+.. automodule:: decomon.backward_layers.crown
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 decomon.backward\_layers.deel\_lip module
 -----------------------------------------
 

@@ -1,231 +1,107 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>decomon.utils &mdash; DecoMon main documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>decomon.utils &mdash; decomon main documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/versions.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> DecoMon
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            decomon
           </a>
-
-          
-            
-            
               <div class="version">
                 main
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html#decomon-for-industrial-challenges-1">DECOMON for Industrial Challenges #1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/airbus/decomon">Github</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">DecoMon</a>
-        
+          <a href="../../index.html">decomon</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-      <li>decomon.utils</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">decomon.utils</li>
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for decomon.utils</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Lambda</span>
 <span class="kn">from</span> <span class="nn">tensorflow.math</span> <span class="kn">import</span> <span class="n">greater_equal</span>
 <span class="kn">from</span> <span class="nn">tensorflow.python.keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
 
-<span class="kn">from</span> <span class="nn">decomon.layers.core</span> <span class="kn">import</span> <span class="n">F_FORWARD</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="p">,</span> <span class="n">F_IBP</span><span class="p">,</span> <span class="n">StaticVariables</span>
+<span class="kn">from</span> <span class="nn">decomon.layers.core</span> <span class="kn">import</span> <span class="n">ForwardMode</span><span class="p">,</span> <span class="n">StaticVariables</span>
 
 
-<span class="c1"># create static variables for varying convex domain</span>
-<div class="viewcode-block" id="Ball"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Ball">[docs]</a><span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ball&quot;</span>  <span class="c1"># Lp Ball around an example</span></div>
-
-
-<div class="viewcode-block" id="Box"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Box">[docs]</a><span class="k">class</span> <span class="nc">Box</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span>  <span class="c1"># Hypercube</span></div>
-
-
-<div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;grid&quot;</span>  <span class="c1"># Hypercube</span>
-    <span class="n">stable_coeff</span> <span class="o">=</span> <span class="mf">0.0</span></div>
-
-
-<div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Vertex">[docs]</a><span class="k">class</span> <span class="nc">Vertex</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;vertex&quot;</span>  <span class="c1"># convex set represented by its vertices</span></div>
+<div class="viewcode-block" id="ConvexDomainType"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.ConvexDomainType">[docs]</a><span class="k">class</span> <span class="nc">ConvexDomainType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">BALL</span> <span class="o">=</span> <span class="s2">&quot;ball&quot;</span>  <span class="c1"># Lp Ball around an example</span>
+    <span class="n">GRID</span> <span class="o">=</span> <span class="s2">&quot;grid&quot;</span>  <span class="c1"># Hypercube</span>
+    <span class="n">BOX</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span>  <span class="c1"># Hypercube</span>
+    <span class="n">VERTEX</span> <span class="o">=</span> <span class="s2">&quot;vertex&quot;</span>  <span class="c1"># convex set represented by its vertices</span></div>
     <span class="c1"># (no verification is proceeded to assess that the set is convex)</span>
 
 
-<span class="c1"># create static variables for varying convex domain</span>
-<div class="viewcode-block" id="V_slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.V_slope">[docs]</a><span class="k">class</span> <span class="nc">V_slope</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;volume-slope&quot;</span></div>
-
-
-<div class="viewcode-block" id="A_slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.A_slope">[docs]</a><span class="k">class</span> <span class="nc">A_slope</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;adaptative-slope&quot;</span></div>
-
-
-<div class="viewcode-block" id="S_slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.S_slope">[docs]</a><span class="k">class</span> <span class="nc">S_slope</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;same-slope&quot;</span></div>
-
-
-<div class="viewcode-block" id="Z_slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Z_slope">[docs]</a><span class="k">class</span> <span class="nc">Z_slope</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;zero-lb&quot;</span></div>
-
-
-<div class="viewcode-block" id="O_slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.O_slope">[docs]</a><span class="k">class</span> <span class="nc">O_slope</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;one-lb&quot;</span></div>
-
-
-<span class="c1"># propagation of constant and affines bounds from input to output</span>
-<div class="viewcode-block" id="M_BACKWARD"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.M_BACKWARD">[docs]</a><span class="k">class</span> <span class="nc">M_BACKWARD</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;backward&quot;</span></div>
-
-
-<div class="viewcode-block" id="M_FORWARD"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.M_FORWARD">[docs]</a><span class="k">class</span> <span class="nc">M_FORWARD</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;forward&quot;</span></div>
-
-
-<div class="viewcode-block" id="M_REC_BACKWARD"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.M_REC_BACKWARD">[docs]</a><span class="k">class</span> <span class="nc">M_REC_BACKWARD</span><span class="p">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;crown&quot;</span></div>
+<div class="viewcode-block" id="Slope"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.Slope">[docs]</a><span class="k">class</span> <span class="nc">Slope</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">V_SLOPE</span> <span class="o">=</span> <span class="s2">&quot;volume-slope&quot;</span>
+    <span class="n">A_SLOPE</span> <span class="o">=</span> <span class="s2">&quot;adaptative-slope&quot;</span>
+    <span class="n">S_SLOPE</span> <span class="o">=</span> <span class="s2">&quot;same-slope&quot;</span>
+    <span class="n">Z_SLOPE</span> <span class="o">=</span> <span class="s2">&quot;zero-lb&quot;</span>
+    <span class="n">O_SLOPE</span> <span class="o">=</span> <span class="s2">&quot;one-lb&quot;</span></div>
 
 
 <span class="c1"># linear hull for activation function</span>
@@ -572,18 +448,18 @@
         <span class="n">x_max</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_upper_box</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Box</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">Grid</span><span class="o">.</span><span class="n">name</span><span class="p">}:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">BOX</span><span class="p">,</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">GRID</span><span class="p">}:</span>
         <span class="n">x_min</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">x_max</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_upper_box</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Ball</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">BALL</span><span class="p">:</span>
 
         <span class="n">eps</span> <span class="o">=</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">]</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_upper_ball</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vertex</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">VERTEX</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
     <span class="k">else</span><span class="p">:</span>
@@ -605,17 +481,17 @@
         <span class="n">x_max</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_lower_box</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">Box</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">Grid</span><span class="o">.</span><span class="n">name</span><span class="p">}:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">BOX</span><span class="p">,</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">GRID</span><span class="p">}:</span>
         <span class="n">x_min</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">x_max</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_lower_box</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Ball</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">BALL</span><span class="p">:</span>
         <span class="n">eps</span> <span class="o">=</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">]</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">get_lower_ball</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Vertex</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">VERTEX</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
     <span class="k">else</span><span class="p">:</span>
@@ -668,7 +544,7 @@
             <span class="n">inputs_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">back_bounds</span><span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span>
             <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">,</span>
-            <span class="n">mode</span><span class="o">=</span><span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span></div>
@@ -686,7 +562,7 @@
             <span class="n">inputs_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">back_bounds</span><span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span>
             <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">,</span>
-            <span class="n">mode</span><span class="o">=</span><span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">output</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span></div>
@@ -759,7 +635,7 @@
 
 <span class="c1"># define routines to get linear relaxations useful both for forward and backward</span>
 <div class="viewcode-block" id="get_linear_hull_relu"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_linear_hull_relu">[docs]</a><span class="k">def</span> <span class="nf">get_linear_hull_relu</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">upper_g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lower_g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">Slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
     <span class="c1"># in case upper=lower, this cases are</span>
     <span class="c1"># considered with index_dead and index_linear</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">lower</span><span class="p">))</span> <span class="o">/</span> <span class="n">K</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upper</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="p">)</span>
@@ -772,7 +648,7 @@
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upper</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">o_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upper</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">V_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">V_SLOPE</span><span class="p">:</span>
         <span class="c1"># 1 if upper&lt;=-lower else 0</span>
         <span class="n">index_a</span> <span class="o">=</span> <span class="o">-</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span> <span class="o">-</span> <span class="n">o_value</span><span class="p">,</span> <span class="o">-</span><span class="n">o_value</span><span class="p">,</span> <span class="n">z_value</span><span class="p">)</span>
 
@@ -781,19 +657,19 @@
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">index_b</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">A_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">A_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">w_u_</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Z_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">Z_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">w_u_</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">O_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">O_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">w_u_</span> <span class="o">+</span> <span class="n">o_value</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">S_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">S_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">w_u_</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
 
@@ -801,8 +677,12 @@
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">o_value</span>
     <span class="k">if</span> <span class="s2">&quot;finetune&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+        <span class="c1"># retrieve variables to optimize the slopes</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;finetune&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">]</span>
+
+    <span class="n">w_l_</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">w_l_</span> <span class="o">+</span> <span class="p">(</span><span class="n">o_value</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">o_value</span> <span class="o">-</span> <span class="n">w_l_</span><span class="p">)</span>
 
     <span class="c1"># check inactive relu state: u&lt;=0</span>
     <span class="n">index_dead</span> <span class="o">=</span> <span class="o">-</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="o">-</span> <span class="n">o_value</span><span class="p">,</span> <span class="o">-</span><span class="n">o_value</span><span class="p">,</span> <span class="n">z_value</span><span class="p">)</span>  <span class="c1"># =1 if inactive state</span>
@@ -825,18 +705,18 @@
 
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">get_linear_hull_s_shape</span><span class="p">(</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">sigmoid_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="p">{},</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">sigmoid_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="p">{},</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_linear_hull_tanh"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_linear_hull_tanh">[docs]</a><span class="k">def</span> <span class="nf">get_linear_hull_tanh</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">get_linear_hull_s_shape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">tanh</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">tanh_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="p">{},</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">get_linear_hull_s_shape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">tanh</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">tanh_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="p">{},</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_linear_softplus_hull"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_linear_softplus_hull">[docs]</a><span class="k">def</span> <span class="nf">get_linear_softplus_hull</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">Slope</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
     <span class="c1"># in case upper=lower, this cases are</span>
     <span class="c1"># considered with index_dead and index_linear</span>
     <span class="n">u_c_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">softsign</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span>
@@ -848,20 +728,20 @@
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upper</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">o_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upper</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">V_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">V_SLOPE</span><span class="p">:</span>
         <span class="c1"># 1 if upper&lt;=-lower else 0</span>
         <span class="n">index_a</span> <span class="o">=</span> <span class="o">-</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span> <span class="o">-</span> <span class="n">o_value</span><span class="p">,</span> <span class="o">-</span><span class="n">o_value</span><span class="p">,</span> <span class="n">z_value</span><span class="p">)</span>
         <span class="c1"># 1 if upper&gt;-lower else 0</span>
         <span class="n">index_b</span> <span class="o">=</span> <span class="n">o_value</span> <span class="o">-</span> <span class="n">index_a</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">index_b</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
-    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Z_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">Z_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">w_u_</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
-    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">O_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">O_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">w_u_</span> <span class="o">+</span> <span class="n">o_value</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
-    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">S_slope</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">Slope</span><span class="o">.</span><span class="n">S_SLOPE</span><span class="p">:</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">w_u_</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">z_value</span> <span class="o">*</span> <span class="n">b_u_</span>
     <span class="k">else</span><span class="p">:</span>
@@ -897,7 +777,7 @@
     <span class="k">return</span> <span class="p">[</span><span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="substract"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.substract">[docs]</a><span class="k">def</span> <span class="nf">substract</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="substract"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.substract">[docs]</a><span class="k">def</span> <span class="nf">substract</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;LiRPA implementation of inputs_0-inputs_1</span>
 
 <span class="sd">    Args:</span>
@@ -918,7 +798,7 @@
     <span class="k">return</span> <span class="n">output</span></div>
 
 
-<div class="viewcode-block" id="add"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="add"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;LiRPA implementation of inputs_0+inputs_1</span>
 
 <span class="sd">    Args:</span>
@@ -933,6 +813,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">convex_domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">convex_domain</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="n">nb_tensor</span> <span class="o">=</span> <span class="n">StaticVariables</span><span class="p">(</span><span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">nb_tensors</span>
     <span class="k">if</span> <span class="n">dc_decomp</span><span class="p">:</span>
         <span class="n">h_0</span><span class="p">,</span> <span class="n">g_0</span> <span class="o">=</span> <span class="n">inputs_0</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
@@ -940,22 +821,22 @@
         <span class="n">h_</span> <span class="o">=</span> <span class="n">h_0</span> <span class="o">+</span> <span class="n">h_1</span>
         <span class="n">g_</span> <span class="o">=</span> <span class="n">g_0</span> <span class="o">+</span> <span class="n">g_1</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">u_c_0</span><span class="p">,</span> <span class="n">w_u_0</span><span class="p">,</span> <span class="n">b_u_0</span><span class="p">,</span> <span class="n">l_c_0</span><span class="p">,</span> <span class="n">w_l_0</span><span class="p">,</span> <span class="n">b_l_0</span> <span class="o">=</span> <span class="n">inputs_0</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">u_c_1</span><span class="p">,</span> <span class="n">w_u_1</span><span class="p">,</span> <span class="n">b_u_1</span><span class="p">,</span> <span class="n">l_c_1</span><span class="p">,</span> <span class="n">w_l_1</span><span class="p">,</span> <span class="n">b_l_1</span> <span class="o">=</span> <span class="n">inputs_1</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">u_c_0</span><span class="p">,</span> <span class="n">l_c_0</span> <span class="o">=</span> <span class="n">inputs_0</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
         <span class="n">u_c_1</span><span class="p">,</span> <span class="n">l_c_1</span> <span class="o">=</span> <span class="n">inputs_1</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">w_u_0</span><span class="p">,</span> <span class="n">b_u_0</span><span class="p">,</span> <span class="n">w_l_0</span><span class="p">,</span> <span class="n">b_l_0</span> <span class="o">=</span> <span class="n">inputs_0</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">w_u_1</span><span class="p">,</span> <span class="n">b_u_1</span><span class="p">,</span> <span class="n">w_l_1</span><span class="p">,</span> <span class="n">b_l_1</span> <span class="o">=</span> <span class="n">inputs_1</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">]:</span>
         <span class="n">u_c_</span> <span class="o">=</span> <span class="n">u_c_0</span> <span class="o">+</span> <span class="n">u_c_1</span>
         <span class="n">l_c_</span> <span class="o">=</span> <span class="n">l_c_0</span> <span class="o">+</span> <span class="n">l_c_1</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">]:</span>
 
         <span class="n">w_u_</span> <span class="o">=</span> <span class="n">w_u_0</span> <span class="o">+</span> <span class="n">w_u_1</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">w_l_0</span> <span class="o">+</span> <span class="n">w_l_1</span>
@@ -963,18 +844,18 @@
         <span class="n">b_u_</span> <span class="o">=</span> <span class="n">b_u_0</span> <span class="o">+</span> <span class="n">b_u_1</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="n">b_l_0</span> <span class="o">+</span> <span class="n">b_l_1</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">upper_</span> <span class="o">=</span> <span class="n">get_upper</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">convex_domain</span><span class="p">)</span>
         <span class="n">u_c_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">upper_</span><span class="p">,</span> <span class="n">u_c_</span><span class="p">)</span>
 
         <span class="n">lower_</span> <span class="o">=</span> <span class="n">get_lower</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">,</span> <span class="n">convex_domain</span><span class="p">)</span>
         <span class="n">l_c_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">lower_</span><span class="p">,</span> <span class="n">l_c_</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">u_c_</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">l_c_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">u_c_</span><span class="p">,</span> <span class="n">l_c_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -985,30 +866,29 @@
     <span class="k">return</span> <span class="n">output</span></div>
 
 
-<div class="viewcode-block" id="relu_"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.relu_">[docs]</a><span class="k">def</span> <span class="nf">relu_</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="n">V_slope</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="relu_"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.relu_">[docs]</a><span class="k">def</span> <span class="nf">relu_</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="n">Slope</span><span class="o">.</span><span class="n">V_SLOPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
     <span class="k">if</span> <span class="n">convex_domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">convex_domain</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
 
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">o_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
     <span class="n">nb_tensors</span> <span class="o">=</span> <span class="n">StaticVariables</span><span class="p">(</span><span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">nb_tensors</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l_c</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensors</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">u_c</span><span class="p">,</span> <span class="n">l_c</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensors</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensors</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">upper</span> <span class="o">=</span> <span class="n">get_upper</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">convex_domain</span><span class="p">)</span>
         <span class="n">lower</span> <span class="o">=</span> <span class="n">get_lower</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span><span class="p">,</span> <span class="n">convex_domain</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">]:</span>
         <span class="n">upper</span> <span class="o">=</span> <span class="n">u_c</span>
         <span class="n">lower</span> <span class="o">=</span> <span class="n">l_c</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1029,9 +909,9 @@
     <span class="n">u_c_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span>
     <span class="n">l_c_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">lower</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">]:</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Grid</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">GRID</span><span class="p">:</span>
             <span class="n">upper_g</span><span class="p">,</span> <span class="n">lower_g</span> <span class="o">=</span> <span class="n">get_bound_grid</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
             <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;upper_grid&quot;</span><span class="p">:</span> <span class="n">upper_g</span><span class="p">,</span> <span class="s2">&quot;lower_grid&quot;</span><span class="p">:</span> <span class="n">lower_g</span><span class="p">})</span>
 
@@ -1042,11 +922,11 @@
         <span class="n">w_l_</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">w_l_</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w_l</span>
 
     <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">+=</span> <span class="p">[</span><span class="n">u_c_</span><span class="p">,</span> <span class="n">l_c_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">u_c_</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">l_c_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1056,7 +936,7 @@
     <span class="k">return</span> <span class="n">output</span></div>
 
 
-<div class="viewcode-block" id="minus"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.minus">[docs]</a><span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="minus"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.minus">[docs]</a><span class="k">def</span> <span class="nf">minus</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;LiRPA implementation of minus(x)=-x.</span>
 
 <span class="sd">    Args:</span>
@@ -1066,12 +946,13 @@
 <span class="sd">    Returns:</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="n">nb_tensor</span> <span class="o">=</span> <span class="n">StaticVariables</span><span class="p">(</span><span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">nb_tensors</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">u</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1079,21 +960,21 @@
     <span class="k">if</span> <span class="n">dc_decomp</span><span class="p">:</span>
         <span class="n">h</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">]:</span>
         <span class="n">u_</span> <span class="o">=</span> <span class="o">-</span><span class="n">l</span>
         <span class="n">l_</span> <span class="o">=</span> <span class="o">-</span><span class="n">u</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">]:</span>
         <span class="n">w_u_</span> <span class="o">=</span> <span class="o">-</span><span class="n">w_l</span>
         <span class="n">b_u_</span> <span class="o">=</span> <span class="o">-</span><span class="n">b_l</span>
         <span class="n">w_l_</span> <span class="o">=</span> <span class="o">-</span><span class="n">w_u</span>
         <span class="n">b_l_</span> <span class="o">=</span> <span class="o">-</span><span class="n">b_u</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">u_</span><span class="p">,</span> <span class="n">l_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">u_</span><span class="p">,</span> <span class="n">w_u_</span><span class="p">,</span> <span class="n">b_u_</span><span class="p">,</span> <span class="n">l_</span><span class="p">,</span> <span class="n">w_l_</span><span class="p">,</span> <span class="n">b_l_</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1104,7 +985,7 @@
     <span class="k">return</span> <span class="n">output</span></div>
 
 
-<div class="viewcode-block" id="maximum"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.maximum">[docs]</a><span class="k">def</span> <span class="nf">maximum</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">finetune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="maximum"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.maximum">[docs]</a><span class="k">def</span> <span class="nf">maximum</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">finetune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;LiRPA implementation of element-wise max</span>
 
 <span class="sd">    Args:</span>
@@ -1135,7 +1016,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="minimum"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.minimum">[docs]</a><span class="k">def</span> <span class="nf">minimum</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">finetune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="minimum"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.minimum">[docs]</a><span class="k">def</span> <span class="nf">minimum</span><span class="p">(</span><span class="n">inputs_0</span><span class="p">,</span> <span class="n">inputs_1</span><span class="p">,</span> <span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="n">finetune</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;LiRPA implementation of element-wise min</span>
 
 <span class="sd">    Args:</span>
@@ -1166,7 +1047,9 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_linear_hull_s_shape"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_linear_hull_s_shape">[docs]</a><span class="k">def</span> <span class="nf">get_linear_hull_s_shape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">sigmoid_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="get_linear_hull_s_shape"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_linear_hull_s_shape">[docs]</a><span class="k">def</span> <span class="nf">get_linear_hull_s_shape</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">K</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">f_prime</span><span class="o">=</span><span class="n">sigmoid_prime</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Computing the linear hull of shape functions  given the pre activation neurons</span>
 
 <span class="sd">    Args:</span>
@@ -1182,16 +1065,17 @@
 
     <span class="k">if</span> <span class="n">convex_domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">convex_domain</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="n">z_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">o_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">t_value</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
     <span class="n">nb_tensor</span> <span class="o">=</span> <span class="n">StaticVariables</span><span class="p">(</span><span class="n">dc_decomp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">nb_tensors</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">u_c</span><span class="p">,</span> <span class="n">l_c</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l_c</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="n">nb_tensor</span><span class="p">]</span>
         <span class="n">u_c</span> <span class="o">=</span> <span class="n">get_upper</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">)</span>
         <span class="n">l_c</span> <span class="o">=</span> <span class="n">get_lower</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">)</span>
@@ -1352,30 +1236,32 @@
     <span class="k">if</span> <span class="n">convex_domain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">convex_domain</span> <span class="o">=</span> <span class="p">{}</span>
 
+    <span class="n">final_mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">final_mode</span><span class="p">)</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">ForwardMode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">mode</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">x</span>
 
     <span class="n">x_0</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l_c</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="n">u_c</span><span class="p">,</span> <span class="n">l_c</span> <span class="o">=</span> <span class="n">x</span>
         <span class="k">if</span> <span class="n">final_mode</span> <span class="o">!=</span> <span class="n">mode</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;If mode if </span><span class="si">{</span><span class="n">F_IBP</span><span class="si">}</span><span class="s2">, final_mode must be also </span><span class="si">{</span><span class="n">F_IBP</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;If mode is </span><span class="si">{</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="si">}</span><span class="s2">, final_mode must be also </span><span class="si">{</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="k">if</span> <span class="n">final_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">final_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">,</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">]:</span>
             <span class="c1"># compute constant bounds</span>
             <span class="n">u_c</span> <span class="o">=</span> <span class="n">get_upper</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">)</span>
             <span class="n">l_c</span> <span class="o">=</span> <span class="n">get_lower</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">convex_domain</span><span class="o">=</span><span class="n">convex_domain</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="n">x_0</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l_c</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">F_IBP</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">IBP</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">u_c</span><span class="p">,</span> <span class="n">l_c</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">F_FORWARD</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">AFFINE</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">F_HYBRID</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">final_mode</span> <span class="o">==</span> <span class="n">ForwardMode</span><span class="o">.</span><span class="n">HYBRID</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">x_0</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">w_u</span><span class="p">,</span> <span class="n">b_u</span><span class="p">,</span> <span class="n">l_c</span><span class="p">,</span> <span class="n">w_l</span><span class="p">,</span> <span class="n">b_l</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown final_mode </span><span class="si">{</span><span class="n">final_mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
@@ -1384,7 +1270,9 @@
 <div class="viewcode-block" id="get_AB"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_AB">[docs]</a><span class="k">def</span> <span class="nf">get_AB</span><span class="p">(</span><span class="n">model_</span><span class="p">):</span>
     <span class="n">dico_AB</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">convex_domain</span> <span class="o">=</span> <span class="n">model_</span><span class="o">.</span><span class="n">convex_domain</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;grid&quot;</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;option&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;milp&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">GRID</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;option&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;milp&quot;</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="n">dico_AB</span>
 
     <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model_</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
@@ -1400,7 +1288,9 @@
 <div class="viewcode-block" id="get_AB_finetune"><a class="viewcode-back" href="../../api/decomon.html#decomon.utils.get_AB_finetune">[docs]</a><span class="k">def</span> <span class="nf">get_AB_finetune</span><span class="p">(</span><span class="n">model_</span><span class="p">):</span>
     <span class="n">dico_AB</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">convex_domain</span> <span class="o">=</span> <span class="n">model_</span><span class="o">.</span><span class="n">convex_domain</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;grid&quot;</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;option&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;milp&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">convex_domain</span><span class="p">)</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ConvexDomainType</span><span class="o">.</span><span class="n">GRID</span> <span class="ow">and</span> <span class="n">convex_domain</span><span class="p">[</span><span class="s2">&quot;option&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;milp&quot;</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="n">dico_AB</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">model_</span><span class="o">.</span><span class="n">finetune</span><span class="p">:</span>
@@ -1417,33 +1307,24 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Airbus.
-
-    </p>
+    <p>&#169; Copyright 2022, Airbus.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
   
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
@@ -1457,18 +1338,11 @@
       </dl>
     </div>
   </div>
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

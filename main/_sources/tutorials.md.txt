@@ -69,24 +69,43 @@ In the second part of the notebook, we will investigate the robustness of this m
 
 What we will show is the use of decomon module to assess the robustness of the prediction towards noise.
 
-## DECOMON tutorial #4
+## tutorial4_certified_over_estimation
 
-[![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial4_adversarial_brightness.ipynb)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial4_adversarial_brightness.ipynb)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial4_adversarial_brightness.ipynb)
+[![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/tutorial4_certified_over_estimation.ipynb)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/tutorial4_certified_over_estimation.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Ftutorial4_certified_over_estimation.ipynb)
 
-_**Local Robustness to Brightness perturbations**_
+ # DECOMON for Industrial Challenges #1 
 
-After training a model, we want to make sure that the model will give the same output for any images "close" to the initial one, showing some robustness to perturbation. 
+_**Overestimation with formal guarantee for Braking Distance Estimation**_
 
-In this notebook, we start from a classifier built on MNIST dataset that given a hand-written digit as input will predict the digit. This will be the first part of the notebook.
 
-<img src="./data/Plot-of-a-Subset-of-Images-from-the-MNIST-Dataset.png" alt="examples of hand-written digit" width="600"/>
 
-In the second part of the notebook, we will investigate the robustness of this model to unstructured modification of the input space: adversarial attacks. For this kind of attacks, **we vary the magnitude of the perturbation of the initial image** and want to assess that despite this noise, the classifier's prediction remain unchanged.
+In recent years, we have seen the emergence of safety-related properties for regression tasks in many industries. For example, numerical models have been developed to approximate the physical phenomena inherent in their systems. Since these models are based on physical equations, the relevance of which is affirmed by scientific experts, their qualifications are carried out without any problems.
+ However, as their computational costs and execution time prevent us from embedding them, the use of these numerical models in the aeronautical domain remains mainly limited to the development and design phase of the aircraft. Thanks to the current success of deep neural networks, previous works have already studied neural network-based surrogates for the approximation of numerical models. Nevertheless, these surrogates have additional safety properties that need to be demonstrated to certification authorities. In this blog post, we will examine a specification that arises for a neural network used for take-off distance estimation which is the over-estimation of the simulation model. We will explore how to address them with _**decomon**_.
+ 
+Embedding simulation models developed during the design of a platform opens a lot of potential 
+new functionalities but requires additional certification. 
+Usually, these models require too much computing power, take too much time to run 
+so we need to build an approximation of these models that can be compatible with operational constraints,
+hardware constraints, and real-time constraints. 
+Also, we need to prove that the decisions made by the system using the surrogate model 
+instead of the reference one will be **safe**. **The confidence in its safety has to be demonstrated 
+to certification authorities**. 
 
-<img src="./data/illustration_adv_attacks.jpeg" alt="examples of hand-written digit" width="600"/>
+## Advanced
 
-What we will show is the use of decomon module to assess the robustness of the prediction towards noise.
+### Tensorboard with decomon
+
+[![Github](https://img.shields.io/badge/see-Github-579aca?logo=github)](https://github.com/nhuet/decomon/blob/main/tutorials/z_Advanced/tensorboard-and-decomon.ipynb)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nhuet/decomon/blob/main/tutorials/z_Advanced/tensorboard-and-decomon.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nhuet/decomon/main?labpath=tutorials%2Fz_Advanced%2Ftensorboard-and-decomon.ipynb)
+
+
+
+In this notebook, we show how to have a look to the graph of a decomon model.
+
+We use here the same model as in [tutorial 1](../tutorial1_sinus-interactive.ipynb) and you should refer to it for any details about how it works.
+
 
 
