@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/nhuet/decomon/new-logo/docs/source/_static/decomon.png" width="55%" alt="decomon" align="center" />
+    <img src="https://raw.githubusercontent.com/nhuet/decomon/new-logo/docs/source/_static/decomon_logo_with_transparency_100.png" alt="decomon" align="center" />
 </div>
 <br>
 
