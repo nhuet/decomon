@@ -7,7 +7,7 @@ import tensorflow.keras.backend as K
 from tensorflow.keras.layers import Activation, Dense, Flatten, Input, Reshape
 from tensorflow.keras.models import Sequential
 
-from decomon.core import ForwardMode, Slope, get_affine, get_ibp, get_mode
+from decomon.core import BallDomain, Slope, get_affine, get_ibp, get_mode
 from decomon.layers.decomon_reshape import DecomonReshape
 from decomon.models import clone
 from decomon.models.convert import FeedDirection, get_direction
@@ -360,6 +360,71 @@ def test_convert_cnn(method, mode, helpers):
         g_,
         input_ref_min_reshaped_,
         input_ref_max_reshaped_,
+        u_c_,
+        w_u_,
+        b_u_,
+        l_c_,
+        w_l_,
+        b_l_,
+        decimal=decimal,
+    )
+
+
+# test different perturbation domain
+@pytest.mark.parametrize(
+    "p",
+    [2, np.inf],
+)
+def test_convert_1D_ball(p, n, method, mode, helpers):
+    if not helpers.is_method_mode_compatible(method=method, mode=mode):
+        # skip method=ibp/crown-ibp with mode=affine/hybrid
+        pytest.skip(f"output mode {mode} is not compatible with convert method {method}")
+
+    decimal = 4
+    dc_decomp = False
+    ibp = get_ibp(mode=mode)
+    affine = get_affine(mode=mode)
+
+    # numpy inputs
+    inputs_ = helpers.get_standard_values_1d_box(n, dc_decomp=dc_decomp)
+    input_ref_min_, input_ref_max_ = helpers.get_input_ref_bounds_from_full_inputs(inputs_)
+
+    # perturbation domain setting
+    if p == 2:
+        nb_axes = len(input_ref_min_.shape)
+        radius = np.max(np.sqrt(np.sum((input_ref_max_ - input_ref_min_) ** 2, axis=tuple(range(1, nb_axes))))) / 2
+    elif p == np.inf:
+        radius = np.max(input_ref_max_ - input_ref_min_) / 2
+    else:
+        raise ValueError(f"Unkwnown p={p}")
+    ball_center_ = (input_ref_max_ + input_ref_min_) / 2
+    perturbation_domain = BallDomain(p=p, eps=radius)
+
+    # keras model and output of reference
+    ref_nn = helpers.toy_network_tutorial(dtype=K.floatx())
+    output_ref_ = ref_nn.predict(ball_center_)
+
+    # decomon conversion
+    decomon_model = clone(
+        ref_nn, method=method, final_ibp=ibp, final_affine=affine, perturbation_domain=perturbation_domain
+    )
+
+    #  decomon outputs
+    outputs_ = decomon_model.predict(ball_center_)
+
+    #  check bounds consistency
+    z_, u_c_, w_u_, b_u_, l_c_, w_l_, b_l_, h_, g_ = helpers.get_full_outputs_from_outputs_for_mode(
+        outputs_for_mode=outputs_, mode=mode, dc_decomp=dc_decomp, full_inputs=inputs_
+    )
+
+    helpers.assert_output_properties_ball(
+        ball_center_,
+        output_ref_,
+        h_,
+        g_,
+        ball_center_,
+        radius,
+        p,
         u_c_,
         w_u_,
         b_u_,
