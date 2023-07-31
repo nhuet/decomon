@@ -9,4 +9,5 @@ dependencies:
       - pandas
       - tensorboard>=2.13
       - jupyter-server-proxy
-      - ..  # decomon
+      - decomon==0.1.1
+      - --extra-index-url https://test.pypi.org/simple/
