@@ -7,4 +7,5 @@ dependencies:
   - pip:
       - kaggle
       - pandas
-      - ..  # decomon
+      - decomon==0.0.25
+      - --extra-index-url https://test.pypi.org/simple/
