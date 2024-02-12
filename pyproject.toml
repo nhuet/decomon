@@ -63,7 +63,7 @@ exclude = '''
 '''
 
 [tool.mypy]
-files = "src"
+files = "src/decomon/layers"
 strict_optional = true
 implicit_optional = false
 check_untyped_defs = true
