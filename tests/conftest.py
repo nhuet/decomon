@@ -15,7 +15,7 @@ from pytest_cases import (
     unpack_fixture,
 )
 
-from decomon.core import BoxDomain, InputsOutputsSpec, Propagation, Slope
+from decomon.core import BoxDomain, ConvertMethod, InputsOutputsSpec, Propagation, Slope
 from decomon.keras_utils import (
     BACKEND_JAX,
     BACKEND_NUMPY,
@@ -23,7 +23,6 @@ from decomon.keras_utils import (
     BACKEND_TENSORFLOW,
     batch_multid_dot,
 )
-from decomon.models.utils import ConvertMethod
 from decomon.types import BackendTensor, Tensor
 
 empty, diag, nobatch = param_fixtures(
@@ -921,7 +920,7 @@ class Helpers:
         keras_output,
         ibp,
         affine,
-        propagation,
+        propagation=Propagation.FORWARD,
         decimal=5,
     ):
         keras_input_shape = tuple(keras_input.shape[1:])
