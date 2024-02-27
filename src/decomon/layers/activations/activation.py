@@ -2,8 +2,10 @@ from collections.abc import Callable
 from typing import Any, Optional
 
 import keras
+import keras.ops as K
 from keras import Layer
-from keras.activations import linear, relu
+from keras.activations import exponential, linear, relu
+from keras.config import epsilon
 from keras.layers import Activation
 
 from decomon.core import PerturbationDomain, Propagation, Slope
@@ -182,9 +184,28 @@ class DecomonReLU(DecomonBaseActivation):
         return w_l, b_l, w_u, b_u
 
 
+class DecomonExponential(DecomonBaseActivation):
+    diagonal = True
+
+    def get_affine_bounds(self, lower: Tensor, upper: Tensor) -> tuple[Tensor, Tensor, Tensor, Tensor]:
+        f_u = self.layer.activation(upper)
+        f_l = self.layer.activation(lower)
+
+        # computer upper bounds: exponential est convexe donc on calcule la corde entre (lower, f_l) et (upper, f_u)
+        w_u = (f_u - f_l) / K.maximum(K.cast(epsilon(), dtype=upper.dtype), upper - lower)
+        b_u = f_l - w_u * lower
+
+        # computer lower bounds: exponential est croissante donc on retourne (0*lower, f_l)
+        # j'ai une meilleure implementation avec l'inegalité de jensen mais c'est pour debug w_u, b_u
+        w_l = 0 * lower
+        b_l = f_l
+        return w_l, b_l, w_u, b_u
+
+
 MAPPING_KERAS_ACTIVATION_TO_DECOMON_ACTIVATION: dict[Callable[[Tensor], Tensor], type[DecomonBaseActivation]] = {
     linear: DecomonLinear,
     relu: DecomonReLU,
+    exponential: DecomonExponential,
 }
 
 
