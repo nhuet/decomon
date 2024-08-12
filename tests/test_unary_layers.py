@@ -1,10 +1,20 @@
+from enum import Enum
+from typing import Any
+
 import keras.ops as K
 import numpy as np
-from keras.layers import Activation, Dense
-from pytest_cases import fixture, fixture_union, parametrize, unpack_fixture
+import pytest
+from keras.layers import Activation, Dense, ZeroPadding2D
+from pytest_cases import (
+    fixture,
+    fixture_union,
+    param_fixture,
+    parametrize,
+    unpack_fixture,
+)
 
 from decomon.keras_utils import batch_multid_dot
-from decomon.layers import DecomonActivation, DecomonDense
+from decomon.layers import DecomonActivation, DecomonDense, DecomonZeroPadding2D
 from decomon.layers.activations.activation import DecomonLinear
 
 
@@ -42,11 +52,46 @@ activation_keras_kwargs, activation_decomon_kwargs = unpack_fixture(
 )
 
 
+class PlaceHolder(str, Enum):
+    """Placeholders for kwargs depending on input metadata."""
+
+    DATA_FORMAT = "data_format"
+
+
+def replace_placeholders(kwargs: dict[str, Any], metadata: dict[str, Any]) -> dict[str, Any]:
+    """Replace placeholders in kwargs by relevant info from input metadata.
+
+    If the information is missing, the test is skipped.
+
+    """
+    new_kwargs = {}
+    for k, v in kwargs.items():
+        if isinstance(v, PlaceHolder):
+            metadata_key = v.value
+            if metadata_key not in metadata:
+                # we skip the test if info missing in metadata
+                pytest.skip(f"We need {metadata_key} in input metadata.")
+            else:
+                new_kwargs[k] = metadata[metadata_key]
+        else:
+            new_kwargs[k] = v
+    return new_kwargs
+
+
+padding = param_fixture("padding", [3, ((2, 1), (0, 1))], ids=["padding-symmetric", "padding-asymmetric"])
+
+
+@fixture
+def zeropadding2d_kwargs(padding):
+    return dict(padding=padding, data_format=PlaceHolder.DATA_FORMAT)
+
+
 @parametrize(
     "decomon_layer_class, decomon_layer_kwargs, keras_layer_class, keras_layer_kwargs, is_actually_linear",
     [
         (DecomonDense, {}, Dense, dense_keras_kwargs, None),
         (DecomonActivation, activation_decomon_kwargs, Activation, activation_keras_kwargs, None),
+        (DecomonZeroPadding2D, {}, ZeroPadding2D, zeropadding2d_kwargs, None),
     ],
 )
 def test_decomon_unary_layer(
@@ -68,11 +113,16 @@ def test_decomon_unary_layer(
     decomon_input_fn,
     equal_ibp_bounds,
     equal_affine_bounds,
+    layer_input_metadata,
     helpers,
 ):
     decimal = 4
     if is_actually_linear is None:
         is_actually_linear = decomon_layer_class.linear
+
+    # update kwargs by replacing placeholders by input metadata, skip if missing
+    keras_layer_kwargs = replace_placeholders(keras_layer_kwargs, layer_input_metadata)
+    decomon_layer_kwargs = replace_placeholders(decomon_layer_kwargs, layer_input_metadata)
 
     # init + build keras layer
     keras_symbolic_model_input = keras_symbolic_model_input_fn()
