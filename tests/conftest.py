@@ -1402,6 +1402,10 @@ def simple_layer_input_functions(
         equal_ibp=equal_ibp,
     )
 
+    metadata = dict(name="simple")
+    if len(input_shape) == 3:
+        metadata["data_format"] = "channels_last"
+
     return (
         keras_symbolic_model_input_fn,
         keras_symbolic_layer_input_fn,
@@ -1411,11 +1415,19 @@ def simple_layer_input_functions(
         decomon_input_fn,
         equal_ibp,
         True,
+        metadata,
     )
 
 
 def convert_standard_input_functions_for_single_layer(
-    get_tensor_decomposition_fn, get_standard_values_fn, ibp, affine, propagation, perturbation_domain, helpers
+    get_tensor_decomposition_fn,
+    get_standard_values_fn,
+    ibp,
+    affine,
+    propagation,
+    perturbation_domain,
+    helpers,
+    metadata,
 ):
     keras_symbolic_model_input_fn = lambda: get_tensor_decomposition_fn()[0]
     keras_symbolic_layer_input_fn = lambda _: get_tensor_decomposition_fn()[1]
@@ -1618,6 +1630,7 @@ def convert_standard_input_functions_for_single_layer(
         decomon_input_fn,
         False,
         False,
+        metadata,
     )
 
 
@@ -1626,8 +1639,16 @@ def standard_layer_input_functions_0d(n, ibp, affine, propagation, batchsize, he
     perturbation_domain = BoxDomain()
     get_tensor_decomposition_fn = helpers.get_tensor_decomposition_0d_box
     get_standard_values_fn = lambda: helpers.get_standard_values_0d_box(n=n, batchsize=batchsize)
+    metadata = dict(name="standard-0d", n=n)
     return convert_standard_input_functions_for_single_layer(
-        get_tensor_decomposition_fn, get_standard_values_fn, ibp, affine, propagation, perturbation_domain, helpers
+        get_tensor_decomposition_fn,
+        get_standard_values_fn,
+        ibp,
+        affine,
+        propagation,
+        perturbation_domain,
+        helpers,
+        metadata,
     )
 
 
@@ -1636,8 +1657,16 @@ def standard_layer_input_functions_1d(odd, ibp, affine, propagation, batchsize, 
     perturbation_domain = BoxDomain()
     get_tensor_decomposition_fn = lambda: helpers.get_tensor_decomposition_1d_box(odd=odd)
     get_standard_values_fn = lambda: helpers.get_standard_values_1d_box(odd=odd, batchsize=batchsize)
+    metadata = dict(name="standard-1d", odd=odd)
     return convert_standard_input_functions_for_single_layer(
-        get_tensor_decomposition_fn, get_standard_values_fn, ibp, affine, propagation, perturbation_domain, helpers
+        get_tensor_decomposition_fn,
+        get_standard_values_fn,
+        ibp,
+        affine,
+        propagation,
+        perturbation_domain,
+        helpers,
+        metadata,
     )
 
 
@@ -1649,8 +1678,16 @@ def standard_layer_input_functions_multid(data_format, ibp, affine, propagation,
     get_standard_values_fn = lambda: helpers.get_standard_values_images_box(
         data_format=data_format, odd=odd, m0=m0, m1=m1, batchsize=batchsize
     )
+    metadata = dict(name="standard-multid", data_format=data_format)
     return convert_standard_input_functions_for_single_layer(
-        get_tensor_decomposition_fn, get_standard_values_fn, ibp, affine, propagation, perturbation_domain, helpers
+        get_tensor_decomposition_fn,
+        get_standard_values_fn,
+        ibp,
+        affine,
+        propagation,
+        perturbation_domain,
+        helpers,
+        metadata,
     )
 
 
@@ -1662,7 +1699,7 @@ layer_input_functions = fixture_union(
         standard_layer_input_functions_1d,
         standard_layer_input_functions_multid,
     ],
-    unpack_into="keras_symbolic_model_input_fn, keras_symbolic_layer_input_fn, decomon_symbolic_input_fn, keras_model_input_fn, keras_layer_input_fn, decomon_input_fn, equal_ibp_bounds, equal_affine_bounds",
+    unpack_into="keras_symbolic_model_input_fn, keras_symbolic_layer_input_fn, decomon_symbolic_input_fn, keras_model_input_fn, keras_layer_input_fn, decomon_input_fn, equal_ibp_bounds, equal_affine_bounds, layer_input_metadata",
 )
 
 (
@@ -1723,6 +1760,8 @@ def simple_model_inputs(simple_model_input_functions, input_shape):
     keras_input = keras_input_fn(keras_symbolic_input)
     decomon_input = decomon_input_fn(keras_input)
     metadata = dict(name="simple")
+    if len(input_shape) == 3:
+        metadata["data_format"] = "channels_last"
 
     return keras_symbolic_input, decomon_symbolic_input, keras_input, decomon_input, metadata
 
