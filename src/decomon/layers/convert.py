@@ -1,11 +1,27 @@
 import logging
 from typing import Any, Optional
 
-from keras.layers import Activation, Add, Dense, Layer
+from keras.layers import (
+    Activation,
+    Add,
+    Dense,
+    Layer,
+    ZeroPadding1D,
+    ZeroPadding2D,
+    ZeroPadding3D,
+)
 
 import decomon.layers
 from decomon.constants import Propagation, Slope
-from decomon.layers import DecomonActivation, DecomonAdd, DecomonDense, DecomonLayer
+from decomon.layers import (
+    DecomonActivation,
+    DecomonAdd,
+    DecomonDense,
+    DecomonLayer,
+    DecomonZeroPadding1D,
+    DecomonZeroPadding2D,
+    DecomonZeroPadding3D,
+)
 from decomon.perturbation_domain import PerturbationDomain
 
 logger = logging.getLogger(__name__)
@@ -17,6 +33,9 @@ default_mapping_keras2decomon_classes: dict[type[Layer], type[DecomonLayer]] = {
     Add: DecomonAdd,
     Dense: DecomonDense,
     Activation: DecomonActivation,
+    ZeroPadding1D: DecomonZeroPadding1D,
+    ZeroPadding2D: DecomonZeroPadding2D,
+    ZeroPadding3D: DecomonZeroPadding3D,
 }
 """Default mapping between keras layers and decomon layers."""
 
