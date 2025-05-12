@@ -1,8 +1,8 @@
 from keras.layers import RepeatVector
 
-from decomon.layers import DecomonLinearLayer
+from decomon.layers import DecomonLayer
 
 
-class DecomonRepeatVector(DecomonLinearLayer):
+class DecomonRepeatVector(DecomonLayer):
     layer: RepeatVector
     increasing = True

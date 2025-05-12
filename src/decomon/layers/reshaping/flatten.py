@@ -1,8 +1,8 @@
 from keras.layers import Flatten
 
-from decomon.layers import DecomonLinearLayer
+from decomon.layers import DecomonLayer
 
 
-class DecomonFlatten(DecomonLinearLayer):
+class DecomonFlatten(DecomonLayer):
     layer: Flatten
     increasing = True

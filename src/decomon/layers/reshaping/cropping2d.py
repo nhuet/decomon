@@ -1,8 +1,8 @@
 from keras.layers import Cropping2D
 
-from decomon.layers import DecomonLinearLayer
+from decomon.layers import DecomonLayer
 
 
-class DecomonCropping2D(DecomonLinearLayer):
+class DecomonCropping2D(DecomonLayer):
     layer: Cropping2D
     increasing = True
